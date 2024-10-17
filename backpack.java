@@ -46,16 +46,6 @@ public class Backpack {
         }
     }
 
-    public void useItem(int indice) {
-        if (indice >= 0 && indice < itemsList.size()) {
-            Items item = itemsList.get(indice); 
-            System.out.println("Using " + item.getItemName());
-            itemsList.remove(indice); 
-        } else {
-            System.out.println("Choose an item that exists.");
-        }
-    }
-
     public void deleteItem(int indice) {
         if (indice >= 0 && indice < itemsList.size()) {
             Items item = itemsList.get(indice);  
