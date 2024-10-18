@@ -12,9 +12,7 @@ public class GameApplication {
 		SpringApplication.run(GameApplication.class, args);
 		Connection connection = DatabaseConnection.connect();
         if (connection != null) {
-            CreateTable.createGamesTable(connection);
-            
+            CreateTable.createGamesTable(connection);  
         }
 	}
-
 }

@@ -7,6 +7,8 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     private static final String URL = "jdbc:h2:file:./gamesDB";
     // la rula relativa en mi PC es jdbc:h2:file:C:/Users/CODER F5 ASTURIAS/Desktop/factoria-f5/kama/KAMA/game/gamesDB
+    // Ruta relativa en h2 console en el PC de casa jdbc:h2:file:C:/Users/Admin/ironhack/KAMA/gamesDB
+
     // (la que hay que poner en h2 console para visualizar la base de datos)
     private static final String USER = "sa";
     private static final String PASSWORD = "";
