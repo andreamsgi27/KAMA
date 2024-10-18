@@ -1,46 +1,66 @@
 package org.factoriaf5.game;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Levels {
 
-    public static void fillAndRandomizeEvents(ArrayList<String> events) {
-
+    public static void Nivel1BosqueEncantado(ArrayList<String> events) {
         ArrayList<String> eventTypes = new ArrayList<>();
-        eventTypes.add("Combat");
-        eventTypes.add("Item");
-        eventTypes.add("Random Event");
+        eventTypes.add("Combate con los esqueletos");
+        eventTypes.add("Encontraste un objeto mágico");
+        eventTypes.add("Enfrenta al monstruo del bosque");
         
-        
-        Collections.shuffle(eventTypes); 
+        Collections.shuffle(eventTypes);
         events.set(0, eventTypes.get(0) + ", " + eventTypes.get(1) + ", " + eventTypes.get(2));
     }
 
+
+
+    public static void Nivel2CementerioOlvidado(ArrayList<String> events) {
+        ArrayList<String> eventTypes = new ArrayList<>();
+        eventTypes.add("combate con los fantasmas");
+        eventTypes.add("Encontraste un objeto mágico");
+        eventTypes.add("Enfrenta al monstruo del cementerio");
+        
+        Collections.shuffle(eventTypes);
+        events.set(0, eventTypes.get(0) + ", " + eventTypes.get(1) + ", " + eventTypes.get(2));
+    }
+
+    
+    public static void Nivel3CastillosDeMortis(ArrayList<String> events) {
+        ArrayList<String> eventTypes = new ArrayList<>();
+        eventTypes.add("duelo con los vampiros");
+        eventTypes.add("Encontraste un objeto mágico");
+        eventTypes.add("duelo con monstruos del castillo");
+        
+        Collections.shuffle(eventTypes);
+        events.set(0, eventTypes.get(0) + ", " + eventTypes.get(1) + ", " + eventTypes.get(2));
+    }
+
+    
     public static void main(String[] args) {
-    
-        ArrayList<String> enchantedForest = new ArrayList<>();
-        ArrayList<String> forgottenCemetery = new ArrayList<>();
-        ArrayList<String> castlesOfMortis = new ArrayList<>();
+        ArrayList<String> bosqueEncantado = new ArrayList<>();
+        ArrayList<String> cementerioOlvidado = new ArrayList<>();
+        ArrayList<String> castilloDeMortis = new ArrayList<>();
         
+        bosqueEncantado.add("");
+        cementerioOlvidado.add("");
+        castilloDeMortis.add("");
+
     
-        enchantedForest.add("");
-        forgottenCemetery.add("");
-        castlesOfMortis.add("");
+        System.out.println("Eventos Bosque Encantado:");
+        Nivel1BosqueEncantado(bosqueEncantado);
+        System.out.println(bosqueEncantado);
+
         
-    
-        System.out.println("Filling Enchanted Forest events:");
-        fillAndRandomizeEvents(enchantedForest);
-        System.out.println(enchantedForest);
+        System.out.println("\nEventos Cementerio Olvidado:");
+        Nivel2CementerioOlvidado(cementerioOlvidado);
+        System.out.println(cementerioOlvidado);
 
-        System.out.println("\nFilling Forgotten Cemetery events:");
-        fillAndRandomizeEvents(forgottenCemetery);
-        System.out.println(forgottenCemetery);
-
-        System.out.println("\nFilling Castles of Mortis events:");
-        fillAndRandomizeEvents(castlesOfMortis);
-        System.out.println(castlesOfMortis);
+        
+        System.out.println("\nEventos Castillo de Mortis:");
+        Nivel3CastillosDeMortis(castilloDeMortis);
+        System.out.println(castilloDeMortis);
     }
 }
-
-
-
