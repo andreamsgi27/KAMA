@@ -3,13 +3,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Backpack {
-    private List<Items> itemsList;  
+    private List<Items> itemsList;
     private final int backpackCapacity = 3;
     private Scanner scanner;
 
     public Backpack() {
         itemsList = new ArrayList<>();
-        scanner = new Scanner(System.in); 
+        scanner = new Scanner(System.in);
     }
 
     public void openBackpack() {
@@ -23,10 +23,10 @@ public class Backpack {
             if (useItems.equalsIgnoreCase("y")) {
                 System.out.println("Choose an item to use:");
                 int indice = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
                 useItem(indice);
             } else {
-                takeDecision(); 
+                takeDecision();
             }
         }
     }
@@ -37,7 +37,7 @@ public class Backpack {
         }
     }
 
-    public void addItem(Items item) {  
+    public void addItem(Items item) {
         if (backpackFull()) {
             changeItem(item);
         } else {
@@ -48,7 +48,7 @@ public class Backpack {
 
     public void deleteItem(int indice) {
         if (indice >= 0 && indice < itemsList.size()) {
-            Items item = itemsList.get(indice);  
+            Items item = itemsList.get(indice);
             itemsList.remove(indice);
             System.out.println(item.getItemName() + " was deleted.");
         } else {
@@ -73,7 +73,7 @@ public class Backpack {
             System.out.println("You have replaced an item with " + newItem.getItemName());
         } else {
             System.out.println("Returning to decision panel...");
-            takeDecision(); 
+            takeDecision();
         }
     }
 }
