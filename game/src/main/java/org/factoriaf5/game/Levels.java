@@ -1,9 +1,8 @@
 package org.factoriaf5.game;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class GameLevels {
+public class Levels {
 
     public static void fillAndRandomizeEvents(ArrayList<String> events) {
 
@@ -42,3 +41,6 @@ public class GameLevels {
         System.out.println(castlesOfMortis);
     }
 }
+
+
+
