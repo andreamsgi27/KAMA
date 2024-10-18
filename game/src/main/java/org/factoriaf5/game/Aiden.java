@@ -34,9 +34,24 @@ public Aiden(){
     public void powerStrike() {
         aidenDamage += 10;
     }
-       public  void shield(){
-        Monster.monsterAtack()-= 5;
-       }
+    
+    public void shield(){
+        Monster.getMonsterAttack()-= 5;
+    }
+    //Creo que hay que pasar por párametro int monsterattack o de alguna manera ponerlo
+    //y luego hacer un set para que se actualice el valor de monsterAttack
+    //es de tipo int y retorna un int
+    
+    /* ejemplo en items:
+     * public int Spear (int aidenDamage) {
+        itemName = "Lanza";
+        int swordDamage = 10;
+        int totalDamage  = swordDamage + aidenDamage;
+        System.out.println("Aiden usa una lanza con" + swordDamage + " de daño.");
+        System.out.println("Aiden inflige" + totalDamage + " de daño");
+        return totalDamage;
+    }
+     */
     }
 
 
