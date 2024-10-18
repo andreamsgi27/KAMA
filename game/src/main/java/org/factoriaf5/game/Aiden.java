@@ -35,9 +35,18 @@ public Aiden(){
         aidenDamage += 10;
     }
     
-    public void shield(){
-        Monster.getMonsterAttack()-= 5;
+    public int shield() {
+    
+        int monsterAttack = Monster.getMonsterAttack();
+        int reducedAttack = monsterAttack - 5;
+        reducedAttack = reducedAttack > 0 ? reducedAttack : 0;
+        Monster.setMonsterAttack(reducedAttack);
+        return reducedAttack;   
+            
+            
+        }
     }
+          
     //Creo que hay que pasar por párametro int monsterattack o de alguna manera ponerlo
     //y luego hacer un set para que se actualice el valor de monsterAttack
     //es de tipo int y retorna un int
@@ -52,7 +61,7 @@ public Aiden(){
         return totalDamage;
     }
      */
-    }
+    
 
 
 
