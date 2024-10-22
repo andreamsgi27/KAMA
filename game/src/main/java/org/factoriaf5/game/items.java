@@ -10,7 +10,7 @@ public class Items {
             return itemName;
         }
 
-    public int spear (int aidenDamage) {
+    public int Spear (int aidenDamage) {
         itemName = "Lanza";
         int swordDamage = 10;
         int totalDamage  = swordDamage + aidenDamage;
@@ -18,7 +18,7 @@ public class Items {
         System.out.println("Aiden inflige" + totalDamage + " de daño");
         return totalDamage;
     }
-    public int potion (int aidenHealth) {
+    public int Potion (int aidenHealth) {
         itemName = "Poción";
         int potion = 20;
         int totalHealth = aidenHealth + potion;
