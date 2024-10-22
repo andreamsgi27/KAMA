@@ -1,5 +1,5 @@
 package org.factoriaf5.game;
-
+import java.util.Scanner;
 public class Aiden {
     private int aidenHealth;
     private int aidenDamage;
@@ -42,26 +42,31 @@ public Aiden(){
         reducedAttack = reducedAttack > 0 ? reducedAttack : 0;
         Monster.setMonsterAttack(reducedAttack);
         return reducedAttack;   
-            
-            
+               
         }
-    }
-          
-    //Creo que hay que pasar por párametro int monsterattack o de alguna manera ponerlo
-    //y luego hacer un set para que se actualice el valor de monsterAttack
-    //es de tipo int y retorna un int
+        //aumentar vidas
+        public void incrementHealth(int bonus) {
+            setAidenHealth(getAidenHealth() + bonus);
+        
+        }
+        //hacer un boolean para saber si aiden esta vivo o si esta muerto
+        public boolean aidenisAlive() {
+            return getAidenHealth() > 0;
+        }
+        //hacer un metodo que imprima cuando aide esta muerto y sacar estadisticas
+
+         public void aidenDie() {
+        if (getAidenHealth() <= 0);
+            System.out.println("Aiden ha muerto.");
+        }
     
-    /* ejemplo en items:
-     * public int Spear (int aidenDamage) {
-        itemName = "Lanza";
-        int swordDamage = 10;
-        int totalDamage  = swordDamage + aidenDamage;
-        System.out.println("Aiden usa una lanza con" + swordDamage + " de daño.");
-        System.out.println("Aiden inflige" + totalDamage + " de daño");
-        return totalDamage;
+        //hacer un llamado para ver las estadisticas de la partida
+      
+        public String toString() {
+            return "Estadísticas de la partida:\n" +  
+                    "Puntuación: " + getPuntuacion() + "\n" +
+                    "Nivel: " + getlevels() + "\n" +
+                    "Contador de eventos: " + getContadorEventos();
+        }
+        
     }
-     */
-    
-
-
-
