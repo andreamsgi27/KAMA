@@ -62,11 +62,11 @@ public Aiden(){
     
         //hacer un llamado para ver las estadisticas de la partida
       
-        public String toString() {
-            return "Estadísticas de la partida:\n" +  
-                    "Puntuación: " + getPuntuacion() + "\n" +
-                    "Nivel: " + getlevels() + "\n" +
-                    "Contador de eventos: " + getContadorEventos();
-        }
+        //public String toString() {
+          //  return "Estadísticas de la partida:\n" +  
+            //        "Puntuación: " + getPuntuacion() + "\n" +
+              //      "Nivel: " + getlevels() + "\n" +
+                //    "Contador de eventos: " + getContadorEventos();
+     //   }
         
     }
