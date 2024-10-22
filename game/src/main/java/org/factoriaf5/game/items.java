@@ -10,7 +10,7 @@ public class Items {
             return itemName;
         }
 
-    public int Spear (int aidenDamage) {
+    public int spear (int aidenDamage) {
         itemName = "Lanza";
         int swordDamage = 10;
         int totalDamage  = swordDamage + aidenDamage;
@@ -18,7 +18,7 @@ public class Items {
         System.out.println("Aiden inflige" + totalDamage + " de daño");
         return totalDamage;
     }
-    public int Potion (int aidenHealth) {
+    public int potion (int aidenHealth) {
         itemName = "Poción";
         int potion = 20;
         int totalHealth = aidenHealth + potion;
@@ -31,7 +31,6 @@ public class Items {
         itemName = "Ajo";
         if (Monster.getMonsterName().equals("Vampiro") && Monster.getLifeStealing() == true){
             Monster.setLifeStealing(false);
-            System.out.println("El vampiro ya no puede robar vida");
         } else {
             System.out.println("El ajo no puede usarse");
         }
@@ -40,7 +39,6 @@ public class Items {
     public void glasses(){
         if (Monster.getMonsterName().equals("Fantasma") && Monster.getInvisibility() == true){
             Monster.setInvisibility(false);
-            System.out.println("El fantasma ya no puede ser invisible");
         } else {
             System.out.println("Las gafas no pueden usarse");
         }
@@ -50,8 +48,10 @@ public class Items {
         itemName = "Silbato";
         if (Monster.getMonsterName().equals("Esqueleto") && Monster.getNumSkeletons() >=2){
             Monster.setNumSkeletons = 1;
-            System.out.println("Llamas a un perro");
-        }
         }
     }
+
+
+
+}
 
