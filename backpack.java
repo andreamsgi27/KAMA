@@ -14,14 +14,14 @@ public class Backpack {
 
     public void openBackpack() {
         if (itemsList.isEmpty()) {
-            System.out.println("Your backpack is empty.");
+            System.out.println("Tu mochila está vacía.");
         } else {
-            System.out.println("These are your items:");
+            System.out.println("Estos son tus objetos:");
             showItems();
-            System.out.println("\nDo you want to use one of the items? (y/n)");
+            System.out.println("\n¿Quieres usar uno de los objetos? (s/n)");
             String useItems = scanner.nextLine();
-            if (useItems.equalsIgnoreCase("y")) {
-                System.out.println("Choose an item to use:");
+            if (useItems.equalsIgnoreCase("s")) {
+                System.out.println("Elige un objeto para usar:");
                 int indice = scanner.nextInt();
                 scanner.nextLine(); 
                 useItem(indice);
@@ -42,7 +42,7 @@ public class Backpack {
             changeItem(item);
         } else {
             itemsList.add(item);
-            System.out.println(item.getItemName() + " has been added to the backpack.");
+            System.out.println(item.getItemName() + " ha sido añadido a la mochila.");
         }
     }
 
@@ -50,9 +50,9 @@ public class Backpack {
         if (indice >= 0 && indice < itemsList.size()) {
             Items item = itemsList.get(indice);  
             itemsList.remove(indice);
-            System.out.println(item.getItemName() + " was deleted.");
+            System.out.println(item.getItemName() + " ha sido eliminado.");
         } else {
-            System.out.println("Choose an item that exists.");
+            System.out.println("Elige un objeto que exista.");
         }
     }
 
@@ -60,19 +60,19 @@ public class Backpack {
         return itemsList.size() >= backpackCapacity;
     }
 
-    private void changeItem(Items newItem) {  // Cambiado a Items
-        System.out.println("Your backpack is full. Do you want to replace an item from your backpack for the new item? (y/n)?");
+    private void changeItem(Items newItem) {  
+        System.out.println("Tu mochila está llena. ¿Quieres reemplazar un objeto de tu mochila por el nuevo objeto? (s/n)?");
         String answer = scanner.nextLine();
-        if (answer.equalsIgnoreCase("y")) {
+        if (answer.equalsIgnoreCase("s")) {
             showItems();
-            System.out.println("\nChoose the item you want to replace:");
+            System.out.println("\nElige el objeto que quieres reemplazar:");
             int indice = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
             deleteItem(indice);
             itemsList.add(newItem);
-            System.out.println("You have replaced an item with " + newItem.getItemName());
+            System.out.println("Has reemplazado un objeto por " + newItem.getItemName());
         } else {
-            System.out.println("Returning to decision panel...");
+            System.out.println("Regresando al panel de decisiones...");
             takeDecision(); 
         }
     }
