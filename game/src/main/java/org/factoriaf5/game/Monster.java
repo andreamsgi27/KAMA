@@ -6,12 +6,14 @@ abstract class Monster {
     public int monsterDamage;
     public int monsterHealth;
     public String monsterName;
+    public int bonus;
 
     //constructor 
-    public Monster(int damage, int health,String name){
+    public Monster(int damage, int health,String name, int bonus){
         this.monsterDamage = damage;
         this.monsterHealth =  health;
         this.monsterName = name;
+        this.bonus = bonus;
     }
 
     //getters y setters
@@ -38,8 +40,15 @@ abstract class Monster {
     public void setMonsterName(String monsterName) {
         this.monsterName = monsterName;
     }
-    
+    public int getBonus() {
+        return bonus;
+    }
 
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+    
+    
     //tostring
     @Override
     public String toString() {
@@ -51,6 +60,7 @@ abstract class Monster {
     public abstract boolean isAlive();
     public abstract void monsterDie();
 
+   
     
    
     
