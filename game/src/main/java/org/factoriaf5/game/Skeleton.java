@@ -4,7 +4,7 @@ import java.util.*;
 public class Skeleton extends Monster {
 
     public Skeleton(int damage, int health){
-        super(damage, health,"esqueleto", 5);
+        super(5, health,"esqueleto", 5);
     }
 
     @Override
@@ -29,15 +29,15 @@ public class Skeleton extends Monster {
     }
 
     @Override
-    public boolean isAlive() {
+    public boolean monsterIsAlive() {
         return monsterHealth > 0;
     }
 
     @Override
     public void monsterDie(Aiden heroe) {
-        if(!isAlive()){
+        if(!monsterIsAlive()){
             heroe.incrementHealth(bonus);
-            System.out.println("el esqueleto ha muerto aiden recibe 5 puntos de vida");
+            System.out.println("el esqueleto ha muerto recibes 5 puntos de vida");
         }
        
     }
