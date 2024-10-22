@@ -7,14 +7,25 @@ public class Skeleton extends Monster {
     }
 
     @Override
-    public void MonsterAtack(Aiden heroe) {
+    public void MonsterAttack(Aiden heroe) {
         System.out.println("El "+ monsterName +" Ataca a Aiden");
         heroe.receiveDamage(monsterDamage);
-        throw new UnsupportedOperationException("Unimplemented method 'MonsterAtack'");
     }
 
     public void numSkeletons(){
         
+    }
+
+    @Override
+    public boolean isAlive() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isAlive'");
+    }
+
+    @Override
+    public void monsterDie() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'monsterDie'");
     }
     
 }
