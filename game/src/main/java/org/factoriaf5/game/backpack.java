@@ -42,21 +42,31 @@ public class Backpack {
         } else {
             System.out.println("Elige un objeto válido.");
         }
+        takeDecisionMenu(); 
     }    
 
     public void openBackpack(Aiden aiden) {
         if (itemsList.isEmpty()) {
-            System.out.println("Tu mochila está vacía.");
+            System.out.println("¡Tu mochila está vacía!");
         } else {
             System.out.println("Estos son tus objetos:");
             showItems();
             System.out.println("\n¿Quieres usar uno de los objetos? (s/n)");
             String useItems = scanner.nextLine();
             if (useItems.equalsIgnoreCase("s")) {
-                System.out.println("Elige un objeto para usar (elige el número correspondiente):");
-                int indice = scanner.nextInt() - 1;
-                scanner.nextLine(); 
-                useItem(indice, aiden);
+                boolean validIndex = false;
+                while (!validIndex) {
+                    System.out.println("Elige un objeto para usar (elige el número correspondiente):");
+                    int indice = scanner.nextInt() - 1;
+                    scanner.nextLine();
+                    if (indice >= 0 && indice < itemsList.size()) {
+                        useItem(indice, aiden);
+                        validIndex = true; 
+                    } else {
+                        System.out.println("¡Elige un objeto válido! Intenta de nuevo.");
+                        showItems();
+                    }
+                }
             } else {
                 takeDecision(); 
             }
@@ -76,6 +86,7 @@ public class Backpack {
             itemsList.add(item);
             System.out.println(item.getItemName() + " ha sido añadido a la mochila.");
         }
+        takeDecisionMenu();
     }
 
     public void deleteItem(int indice) {
@@ -86,6 +97,7 @@ public class Backpack {
         } else {
             System.out.println("Elige un objeto que exista.");
         }
+        takeDecisionMenu();
     }
 
     public boolean backpackFull() {
@@ -107,5 +119,16 @@ public class Backpack {
             System.out.println("Regresando al panel de decisiones...");
             takeDecision(); 
         }
+        takeDecisionMenu(); 
     }
+
+    private void takeDecisionMenu() {
+        System.out.println("¿Quieres volver al menú principal? (s/n)");
+        String decision = scanner.nextLine();
+        if (decision.equalsIgnoreCase("s")) {
+            takeDecision(); 
+        } else {
+            System.out.println("Acción cancelada.");
+    }
+}
 }
