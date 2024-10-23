@@ -1,7 +1,11 @@
 package org.factoriaf5.game;
 
+import java.rmi.server.Skeleton;
+import java.util.Random;
+
 public class Items {
     private String itemName;
+    Backpack backpack = new Backpack();
 
     public Items(String itemName) {
         this.itemName = itemName;
@@ -9,6 +13,15 @@ public class Items {
         public String getItemName() {
             return itemName;
         }
+    
+    public void itemFound () {
+        Random random = new Random();
+        String[] possibleItems = {"Lanza", "Poción", "Ajo", "Gafas", "Silbato"};
+        String randomItem = possibleItems[random.nextInt(possibleItems.length)];
+        System.out.println("Encontraste " + randomItem);
+        Items foundItem = new Items(randomItem);
+        backpack.addItem(foundItem); //randomItem es de tipo String
+    }
 
     public int spear (int aidenDamage) {
         itemName = "Lanza";
@@ -29,8 +42,8 @@ public class Items {
 
     public void garlic(){
         itemName = "Ajo";
-        if (Monster.getMonsterName().equals("Vampiro") && Monster.getLifeStealing() == true){
-            Monster.setLifeStealing(false);
+        if (Vampire.getMonsterName().equalsIgnoreCase("Vampiro") && Vampire.getLifeStealing() == true){
+            Vampire.setLifeStealing(false);
             System.out.println("El vampiro ya no puede robarte vida");
 
         } else {
@@ -39,8 +52,8 @@ public class Items {
     }
 
     public void glasses(){
-        if (Monster.getMonsterName().equals("Fantasma") && Monster.getInvisibility() == true){
-            Monster.setInvisibility(false);
+        if (Phantom.getMonsterName().equalsIgnoreCase("Fantasma") && Phantom.getInvisibility() == true){
+            Phantom.setInvisibility(false);
             System.out.println("El fantasma ya no es invisible");
         } else {
             System.out.println("Las gafas no pueden usarse en este momento");
@@ -49,8 +62,8 @@ public class Items {
 
     public void whistle(){
         itemName = "Silbato";
-        if (Monster.getMonsterName().equals("Esqueleto") && Monster.getNumSkeletons() >=2){
-            Monster.setNumSkeletons = 1;
+        if (Skeleton.getMonsterName().equalsIgnoreCase("Esqueleto") && Skeleton.getNumSkeletons() >=2){
+            Skeleton.setNumSkeletons = 1;
             System.out.println("Usas silbato y aparece un lobo enorme que se come a todos los esqueletos dejando solo a uno en pie");
         } else {
             System.out.println("El silbato no puede usarse en este momento");
