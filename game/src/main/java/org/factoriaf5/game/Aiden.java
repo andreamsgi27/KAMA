@@ -58,11 +58,10 @@ public Aiden(){
          public void aidenDie() {
         if (getAidenHealth() <= 0);
             System.out.println("Aiden ha muerto.");
-        }
-    
-        //hacer un llamado para ver las estadisticas de la partida
-      
-        public String toString() {
+            System.out.println(stat());
+         }
+        
+        public String stat() {
             return "Estadísticas de la partida:\n" +  
                     "Puntuación: " + getPuntuacion() + "\n" +
                     "Nivel que ha muerto: " + getlevels() + "\n" +
