@@ -14,5 +14,6 @@ public class GameApplication {
         if (connection != null) {
             CreateTable.createGamesTable(connection);  
         }
+		InsertGame.insertGame(connection, "2024-10-23", "John Doe", true, 12345);
 	}
 }
