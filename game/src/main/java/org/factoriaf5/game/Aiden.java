@@ -63,9 +63,9 @@ public Aiden(){
         
         public String stat() {
             return "Estadísticas de la partida:\n" +  
-                    "Puntuación: " + getPuntuacion() + "\n" +
+                    "Puntuación: " + getscore() + "\n" +
                     "Nivel que ha muerto: " + getlevels() + "\n" +
-                    "Contador de eventos: " + getContadorEventos();
+                    "Contador de eventos: " + getEventcont();
       }
         
     }
