@@ -5,62 +5,77 @@ import java.util.Collections;
 
 public class Levels {
 
-    public static void Nivel1BosqueEncantado(ArrayList<String> events) {
-        ArrayList<String> eventTypes = new ArrayList<>();
-        eventTypes.add("Combate con los esqueletos");
-        eventTypes.add("Encontraste un objeto mágico");
-        eventTypes.add("Enfrenta al monstruo del bosque");
-        
-        Collections.shuffle(eventTypes);
-        events.set(0, eventTypes.get(0) + ", " + eventTypes.get(1) + ", " + eventTypes.get(2));
-    }
+    
+    public static ArrayList<String> EnventGenerator() {
+        ArrayList<String> events = new ArrayList<>();
 
+        for (int i = 0; i < 5; i++) {
+            events.add("Combate " + (i + 1));
+        }
 
-
-    public static void Nivel2CementerioOlvidado(ArrayList<String> events) {
-        ArrayList<String> eventTypes = new ArrayList<>();
-        eventTypes.add("combate con los fantasmas");
-        eventTypes.add("Encontraste un objeto mágico");
-        eventTypes.add("Enfrenta al monstruo del cementerio");
-        
-        Collections.shuffle(eventTypes);
-        events.set(0, eventTypes.get(0) + ", " + eventTypes.get(1) + ", " + eventTypes.get(2));
-    }
+        for (int i = 0; i < 3; i++) {
+            events.add("Evento Aleatorio " + (i + 1));
+        }
 
     
-    public static void Nivel3CastillosDeMortis(ArrayList<String> events) {
-        ArrayList<String> eventTypes = new ArrayList<>();
-        eventTypes.add("duelo con los vampiros");
-        eventTypes.add("Encontraste un objeto mágico");
-        eventTypes.add("duelo con monstruos del castillo");
-        
-        Collections.shuffle(eventTypes);
-        events.set(0, eventTypes.get(0) + ", " + eventTypes.get(1) + ", " + eventTypes.get(2));
+        for (int i = 0; i < 2; i++) {
+            events.add("Objeto " + (i + 1));
+        }
+
+    
+        Collections.shuffle(events);
+
+        return events;
     }
 
     
-    public static void main(String[] args) {
-        ArrayList<String> bosqueEncantado = new ArrayList<>();
-        ArrayList<String> cementerioOlvidado = new ArrayList<>();
-        ArrayList<String> castilloDeMortis = new ArrayList<>();
-        
-        bosqueEncantado.add("");
-        cementerioOlvidado.add("");
-        castilloDeMortis.add("");
+    public static ArrayList<String> Nivel1BosqueEncantado() {
+        return EnventGenerator();
+    }
 
     
-        System.out.println("Eventos Bosque Encantado:");
-        Nivel1BosqueEncantado(bosqueEncantado);
-        System.out.println(bosqueEncantado);
+    public static ArrayList<String> Nivel2CementerioOlvidado() {
+        return EnventGenerator();
+    }
 
-        
-        System.out.println("\nEventos Cementerio Olvidado:");
-        Nivel2CementerioOlvidado(cementerioOlvidado);
-        System.out.println(cementerioOlvidado);
+    
+    public static ArrayList<String> Nivel3CastillosDeMortis() {
+        return EnventGenerator();
+    }
 
-        
-        System.out.println("\nEventos Castillo de Mortis:");
-        Nivel3CastillosDeMortis(castilloDeMortis);
-        System.out.println(castilloDeMortis);
+
+    public static void ejecutarNiveles() {
+        int nivelActual = 1;
+
+        while (nivelActual <= 3) {
+            ArrayList<String> eventosNivel = new ArrayList<>();
+
+            switch (nivelActual) {
+                case 1 -> eventosNivel = Nivel1BosqueEncantado();
+                case 2 -> eventosNivel = Nivel2CementerioOlvidado();
+                case 3 -> eventosNivel = Nivel3CastillosDeMortis();
+            }
+
+    
+            for (String events : eventosNivel) {
+
+
+                System.out.println(events); //revisar esta linea bien
+                
+            }
+
+            nivelActual++;
+        }
     }
 }
+
+
+    
+    
+        
+
+
+
+
+
+
