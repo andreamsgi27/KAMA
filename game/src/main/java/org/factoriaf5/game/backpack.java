@@ -1,4 +1,5 @@
 package org.factoriaf5.game;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -42,15 +43,15 @@ public class Backpack {
         } else {
             System.out.println("Elige un objeto válido.");
         }
-        takeDecisionMenu(); 
     }    
 
     public void openBackpack(Aiden aiden) {
         if (itemsList.isEmpty()) {
             System.out.println("¡Tu mochila está vacía!");
         } else {
-            System.out.println("Estos son tus objetos:");
+            System.out.println(  "Mochila");
             showItems();
+            System.out.println("");
             System.out.println("\n¿Quieres usar uno de los objetos? (s/n)");
             String useItems = scanner.nextLine();
             if (useItems.equalsIgnoreCase("s")) {
@@ -67,8 +68,6 @@ public class Backpack {
                         showItems();
                     }
                 }
-            } else {
-                takeDecision(); 
             }
         }
     }
@@ -86,7 +85,6 @@ public class Backpack {
             itemsList.add(item);
             System.out.println(item.getItemName() + " ha sido añadido a la mochila.");
         }
-        takeDecisionMenu();
     }
 
     public void deleteItem(int indice) {
@@ -97,7 +95,6 @@ public class Backpack {
         } else {
             System.out.println("Elige un objeto que exista.");
         }
-        takeDecisionMenu();
     }
 
     public boolean backpackFull() {
@@ -112,23 +109,14 @@ public class Backpack {
             System.out.println("\nElige el objeto que quieres reemplazar:");
             int indice = scanner.nextInt() - 1; 
             scanner.nextLine();
-            deleteItem(indice);
-            itemsList.add(newItem);
-            System.out.println("Has reemplazado un objeto por " + newItem.getItemName());
-        } else {
-            System.out.println("Regresando al panel de decisiones...");
-            takeDecision(); 
+            if (indice >= 0 && indice < itemsList.size()) {
+                Items oldItem = itemsList.get(indice); 
+                deleteItem(indice); 
+                itemsList.add(newItem); 
+                System.out.println("Has reemplazado " + oldItem.getItemName() + " por " + newItem.getItemName());
+            } else {
+                System.out.println("¡Elige un objeto válido para reemplazar!");
+            }
         }
-        takeDecisionMenu(); 
-    }
-
-    private void takeDecisionMenu() {
-        System.out.println("¿Quieres volver al menú principal? (s/n)");
-        String decision = scanner.nextLine();
-        if (decision.equalsIgnoreCase("s")) {
-            takeDecision(); 
-        } else {
-            System.out.println("Acción cancelada.");
-    }
-}
+    }    
 }
