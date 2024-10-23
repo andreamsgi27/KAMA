@@ -29,42 +29,42 @@ public class Levels {
     }
 
     
-    public static ArrayList<String> Nivel1BosqueEncantado() {
+    public static ArrayList<String> Level1BosqueEncantado() {
         return EnventGenerator();
     }
 
     
-    public static ArrayList<String> Nivel2CementerioOlvidado() {
+    public static ArrayList<String> Level2CementerioOlvidado() {
         return EnventGenerator();
     }
 
     
-    public static ArrayList<String> Nivel3CastillosDeMortis() {
+    public static ArrayList<String> Level3CastillosDeMortis() {
         return EnventGenerator();
     }
 
 
-    public static void ejecutarNiveles() {
-        int nivelActual = 1;
+    public static void runlevels() {
+        int actualLevel = 1;
 
-        while (nivelActual <= 3) {
-            ArrayList<String> eventosNivel = new ArrayList<>();
+        while (actualLevel <= 3) {
+            ArrayList<String> levelsEvents = new ArrayList<>();
 
-            switch (nivelActual) {
-                case 1 -> eventosNivel = Nivel1BosqueEncantado();
-                case 2 -> eventosNivel = Nivel2CementerioOlvidado();
-                case 3 -> eventosNivel = Nivel3CastillosDeMortis();
+            switch (actualLevel) {
+                case 1 -> levelsEvents = Level1BosqueEncantado();
+                case 2 -> levelsEvents = Level2CementerioOlvidado();
+                case 3 -> levelsEvents = Level3CastillosDeMortis();
             }
 
     
-            for (String events : eventosNivel) {
+            for (String events : levelsEvents) {
 
 
                 System.out.println(events); //revisar esta linea bien
                 
             }
 
-            nivelActual++;
+            actualLevel++;
         }
     }
 }
