@@ -20,11 +20,11 @@ public class Backpack {
     
             switch (itemName) {
                 case "Lanza":
-                    int totalDamage = item.Spear(aiden.getAidenDamage()); 
+                    int totalDamage = item.spear(aiden.getAidenDamage()); 
                     aiden.setAidenDamage(totalDamage);  
                     break;
                 case "Poción":
-                    int totalHealth = item.Potion(aiden.getAidenHealth());  
+                    int totalHealth = item.potion(aiden.getAidenHealth());  
                     aiden.setAidenHealth(totalHealth);  
                     break;
                 case "Ajo":
