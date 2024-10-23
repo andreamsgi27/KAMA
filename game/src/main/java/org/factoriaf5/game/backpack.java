@@ -1,7 +1,4 @@
 package org.factoriaf5.game;
-import org.factoriaf5.game.Items;
-import org.factoriaf5.game.Aiden;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
