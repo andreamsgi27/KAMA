@@ -65,7 +65,7 @@ public Aiden(){
             return "Estadísticas de la partida:\n" +  
                     "Puntuación: " + getscore() + "\n" +
                     "Nivel que ha muerto: " + getlevels() + "\n" +
-                    "Contador de eventos: " + getEventcont();
+                    "Contador de eventos: " + geteventcont();
       }
         
     }
