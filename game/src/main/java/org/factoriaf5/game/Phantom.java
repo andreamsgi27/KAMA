@@ -1,12 +1,23 @@
 package org.factoriaf5.game;
+import java.util.*;
 
 public class Phantom extends Monster {
 
 
-    public Phantom(int damage, int health, String name, int bonus) {
+    public Phantom( int health) {
         super(7, health, "fantasma", 15);
-        //TODO Auto-generated constructor stub
     }
+
+    public boolean invisible () {
+        Random random = new Random();
+        int invisible = random.nextInt(1);
+        if (invisible == 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
     @Override
     public void MonsterAttack(Aiden heroe) {
@@ -18,7 +29,7 @@ public class Phantom extends Monster {
     public void monsterDie() {
         if(!monsterIsAlive()){
             heroe.incrementHealth(bonus);
-            System.out.println("el vampiro ha muerto recibes 20 puntos de vida");
+            System.out.println("el fantasma ha muerto recibes 15 puntos de vida");
         }
     }
 
