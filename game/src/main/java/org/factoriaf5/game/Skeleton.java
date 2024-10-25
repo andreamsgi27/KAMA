@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Skeleton extends Monster {
 
-    public Skeleton(int damage, int health){
+    public Skeleton(int health){
         super(5, health,"esqueleto", 5);
     }
 

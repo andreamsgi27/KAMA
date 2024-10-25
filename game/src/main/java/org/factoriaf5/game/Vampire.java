@@ -4,9 +4,8 @@ import java.util.*;
 public class Vampire extends Monster {
     
 
-    public Vampire(int damage, int health, String name, int bonus) {
+    public Vampire(int health) {
         super(7, health, "vampiro", 20);
-        //TODO Auto-generated constructor stub
     }
 
     public void lifeStealing(Aiden heroe){
@@ -33,7 +32,7 @@ public class Vampire extends Monster {
     }
 
     @Override
-    public void monsterDie() {
+    public void monsterDie(Aiden heroe) {
         if(!monsterIsAlive()){
             heroe.incrementHealth(bonus);
             System.out.println("el vampiro ha muerto recibes 20 puntos de vida");

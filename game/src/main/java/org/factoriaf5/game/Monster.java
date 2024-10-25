@@ -58,7 +58,7 @@ abstract class Monster {
     //methods
     public abstract void MonsterAttack(Aiden heroe);
     public abstract boolean monsterIsAlive();
-    public abstract void monsterDie();
+    public abstract void monsterDie(Aiden heroe);
 
    
     
