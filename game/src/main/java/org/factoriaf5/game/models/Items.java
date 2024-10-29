@@ -10,9 +10,8 @@ public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String itemName;
-    // Otros campos y métodos de la clase Items
+    private String itemDescription;
 
     public Items(String itemName) {
         this.itemName = itemName;
@@ -29,5 +28,9 @@ public class Items {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public String getItemDescription() {
+        return itemDescription;
     }
 }
