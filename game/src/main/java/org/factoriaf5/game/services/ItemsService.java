@@ -46,8 +46,8 @@ public class ItemsService {
     public String garlic() {
         // Lógica para interactuar con el vampiro
         // Suponiendo que Vampire es una entidad que tienes en el sistema
-        if (Vampire.getMonsterName().equalsIgnoreCase("Vampiro") && Vampire.getLifeStealing()) {
-            Vampire.setLifeStealing(false);
+        if (MonsterModel.getMonsterName().equalsIgnoreCase("Vampiro") && MonsterModel.getLifeStealing()) {
+            MonsterModel.setLifeStealing(false);
             return "El vampiro ya no puede robarte vida.";
         } else {
             return "El ajo no puede usarse en este momento.";
@@ -56,8 +56,8 @@ public class ItemsService {
 
     public String glasses() {
         // Lógica para interactuar con el fantasma
-        if (Phantom.getMonsterName().equalsIgnoreCase("Fantasma") && Phantom.getInvisibility()) {
-            Phantom.setInvisibility(false);
+        if (MonsterModel.getMonsterName().equalsIgnoreCase("Fantasma") && MonsterModel.getInvisibility()) {
+            MonsterModel.setInvisibility(false);
             return "El fantasma ya no es invisible.";
         } else {
             return "Las gafas no pueden usarse en este momento.";
@@ -66,8 +66,8 @@ public class ItemsService {
 
     public String whistle() {
         // Lógica para interactuar con el esqueleto
-        if (Skeleton.getMonsterName().equalsIgnoreCase("Esqueleto") && Skeleton.getNumSkeletons() >= 2) {
-            Skeleton.setNumSkeletons(1);
+        if (MonsterModel.getMonsterName().equalsIgnoreCase("Esqueleto") && MonsterModel.getNumSkeletons() >= 2) {
+            MonsterModel.setNumSkeletons(1);
             return "Usas el silbato, y aparece un lobo enorme que se come a todos los esqueletos dejando solo a uno en pie.";
         } else {
             return "El silbato no puede usarse en este momento.";
