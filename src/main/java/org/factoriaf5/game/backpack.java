@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Backpack {
+public class Backpack {/* 
     private List<Items> itemsList;  
     private final int backpackCapacity = 3;
     private Scanner scanner;
