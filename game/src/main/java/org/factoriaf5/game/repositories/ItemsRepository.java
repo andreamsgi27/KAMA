@@ -1,4 +1,4 @@
 package org.factoriaf5.game.repositories;
-public class SwordRepository {
+public class ItemsRepository {
     
 }
