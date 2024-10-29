@@ -1,6 +1,8 @@
 package org.factoriaf5.game;
 import java.util.Scanner;
-public class Aiden {/* 
+
+public class Aiden {
+
     private int aidenHealth;
     private int aidenDamage;
    
@@ -67,5 +69,4 @@ public Aiden(){
                     "Nivel que ha muerto: " + getlevels() + "\n" +
                     "Contador de eventos: " + geteventcont();
       }
-         */
     }
