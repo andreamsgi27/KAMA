@@ -12,37 +12,48 @@ public class Aiden {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String aidenname;
-    private String aidendescription;
-    private String aidenhabilities;
-    private int  aidenHealth;
-    private int  aidenDamage;
+    private String aidenName;
+    private String aidenDescription;
+    private String aidenAbility;
+    private int aidenHealth;
+    private int aidenDamage;
 
-    public Aiden(Long id, String name) {
+    public Aiden(Long id, String aidenName, String aidenDescription, String aidenAbility, int aidenHealth, int aidenDamage) {
         this.id = id;
-        this.aidenname = name;
+        this.aidenName = aidenName;
+        this.aidenDescription = aidenDescription;
+        this.aidenAbility = aidenAbility;
+        this.aidenHealth = 100; 
+        this.aidenDamage = 15;
+
     }
 
         public Long getId() {
             return id;
         }
     
-        public String getItemName() {
-            return aidenname;
+        public String getaidenName() {
+            return aidenName;
         }
     
-        public void setItemName(String itemName) {
-            this.aidenname = itemName;
+        public void setaidenName(String aidenName) {
+            this.aidenName = aidenName;
         }
     
-        public String getItemDescription() {
-            return aidendescription;
+        public String getaidenDescription() {
+            return aidenDescription;
         }
   
-    public Aiden(){
-        this.aidenHealth = 100; 
-        this.aidenDamage = 15;
-}
+        public void setaidenDescription(String aidenDescription) {
+            this.aidenDescription = aidenDescription;
+        }
+        public String getaidenAbility() {
+            return aidenAbility;
+        }
+  
+        public void setaidenAbility(String aidenAbility) {
+            this.aidenAbility = aidenAbility;
+        }
     // Métodos get y set para aidenHealth
     public int getAidenHealth() {
         return aidenHealth;
