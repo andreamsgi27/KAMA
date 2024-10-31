@@ -1,5 +1,5 @@
 package org.factoriaf5.game.services;
 
-public class ItemsService {
-    
+public class MonsterService {
+
 }
