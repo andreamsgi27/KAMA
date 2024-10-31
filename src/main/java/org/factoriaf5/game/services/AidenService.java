@@ -48,6 +48,14 @@ public class AidenService{
                     "Nivel que ha muerto: " + getlevels() + "\n" +
                     "Contador de eventos: " + geteventcont();
       }
+        public Aiden getAiden() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getAiden'");
+        }
+        public Aiden updateAiden(Aiden aidenDetails) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'updateAiden'");
+        }
         
     }
 
