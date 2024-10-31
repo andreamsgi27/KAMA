@@ -1,4 +1,4 @@
-package org.factoriaf5.game.models;
+/* package org.factoriaf5.game.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,3 +25,4 @@ public class Aiden {
     
 
 }
+ */

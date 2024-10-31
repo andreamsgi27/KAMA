@@ -1,4 +1,4 @@
-package org.factoriaf5.game;
+/* package org.factoriaf5.game;
 import java.util.Scanner;
 
 public class Aiden {
@@ -70,3 +70,4 @@ public Aiden(){
                     "Contador de eventos: " + geteventcont();
       }
     }
+ */

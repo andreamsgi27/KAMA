@@ -1,4 +1,4 @@
-package org.factoriaf5.game;
+/* package org.factoriaf5.game;
 import org.factoriaf5.game.Items;
 import org.factoriaf5.game.Aiden;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Backpack {/* 
+public class Backpack {
     private List<Items> itemsList;  
     private final int backpackCapacity = 3;
     private Scanner scanner;
@@ -110,5 +110,6 @@ public class Backpack {/*
             System.out.println("Regresando al panel de decisiones...");
             takeDecision(); 
         }
-    } */
+    }
 }
+ */

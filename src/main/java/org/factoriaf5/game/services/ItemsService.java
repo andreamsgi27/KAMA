@@ -1,4 +1,4 @@
-package org.factoriaf5.game.services;
+/* package org.factoriaf5.game.services;
 
 import org.factoriaf5.game.Items;
 import org.factoriaf5.game.repositories.ItemsRepository;
@@ -75,3 +75,4 @@ public class ItemsService {
     }
 }
 
+ */

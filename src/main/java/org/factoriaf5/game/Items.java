@@ -1,10 +1,10 @@
-package org.factoriaf5.game;
+/* package org.factoriaf5.game;
 
 import java.rmi.server.Skeleton;
 import java.util.Random;
 
 public class Items {
-  /*   private String itemName;
+     private String itemName;
     Backpack backpack = new Backpack();
 
     public Items(String itemName) {
@@ -68,7 +68,8 @@ public class Items {
         } else {
             System.out.println("El silbato no puede usarse en este momento");
             }
-            } */
+            } 
            
 
 }
+ */
