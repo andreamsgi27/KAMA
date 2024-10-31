@@ -1,10 +1,61 @@
 package org.factoriaf5.game.services;
+  
+import java.util.List;
 
-<<<<<<<< HEAD:src/main/java/org/factoriaf5/game/services/AidenService.java
-public class AidenService {
-
-========
-public class BackpackService {
+import org.factoriaf5.game.models.Aiden;
+import org.factoriaf5.game.repositories.AidenRepository;
+import org.springframework.stereotype.Service;
+@Service
+public class AidenService{
+   
+        //public void recibir daño y habilidades
+    public void receiveDamage(int monsterDamage) {
+        setAidenHealth(getAidenHealth() - monsterDamage);
+    }
+    public void powerStrike() {
+        aidenDamage += 10;
+    }
     
->>>>>>>> origin/backpack2:src/main/java/org/factoriaf5/game/services/BackpackService.java
-}
+    public int shield() {
+    
+        int monsterAttack = Monster.getMonsterAttack();
+        int reducedAttack = monsterAttack - 5;
+        reducedAttack = reducedAttack > 0 ? reducedAttack : 0;
+        Monster.setMonsterAttack(reducedAttack);
+        return reducedAttack;   
+               
+        }
+        //aumentar vidas
+        public void incrementHealth(int bonus) {
+            setAidenHealth(getAidenHealth() + bonus);
+        
+        }
+        //hacer un boolean para saber si aiden esta vivo o si esta muerto
+        public boolean aidenisAlive() {
+            return getAidenHealth() > 0;
+        }
+        //hacer un metodo que imprima cuando aide esta muerto y sacar estadisticas
+
+         public void aidenDie() {
+        if (getAidenHealth() <= 0);
+            System.out.println("Aiden ha muerto.");
+            System.out.println(stat());
+         }
+        
+        public String stat() {
+            return "Estadísticas de la partida:\n" +  
+                    "Puntuación: " + getscore() + "\n" +
+                    "Nivel que ha muerto: " + getlevels() + "\n" +
+                    "Contador de eventos: " + geteventcont();
+      }
+        public Aiden getAiden() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getAiden'");
+        }
+        public Aiden updateAiden(Aiden aidenDetails) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'updateAiden'");
+        }
+        
+    }
+
