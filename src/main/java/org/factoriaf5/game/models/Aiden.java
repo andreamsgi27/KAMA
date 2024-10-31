@@ -18,7 +18,7 @@ public class Aiden {
     private int aidenHealth;
     private int aidenDamage;
 
-    public Aiden(Long id, String aidenName, String aidenDescription, String aidenAbility, int aidenHealth, int aidenDamage) {
+    public Aiden(Long id, String aidenName, String aidenDescription, String aidenAbility, Long aidenHealth, Long aidenDamage) {
         this.id = id;
         this.aidenName = aidenName;
         this.aidenDescription = aidenDescription;
