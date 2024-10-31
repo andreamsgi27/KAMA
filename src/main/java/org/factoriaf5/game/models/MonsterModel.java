@@ -19,12 +19,11 @@ public class MonsterModel {
     private String monsterName;
     private int bonus;
     
-    public MonsterModel {
-        this.id = id;
-        this.typeMonster = typeMonster;
-        this.monsterDamage = monsterDamage;
-        this.monsterHealth = monsterHealth;
-        this.monsterName = monsterName;
+    public MonsterModel(String type, int damage, int health, String name, int bonus){
+        this.typeMonster = type;
+        this.monsterDamage = damage;
+        this.monsterHealth = health;
+        this.monsterName = name;
         this.bonus = bonus;
     }
 
