@@ -3,14 +3,13 @@ package org.factoriaf5.game.services;
 import java.util.List;
 
 import org.factoriaf5.game.models.Aiden;
-import org.factoriaf5.game.repositories.AidenRepository;
 import org.springframework.stereotype.Service;
 @Service
 public class AidenService{
    
         //public void recibir daño y habilidades
     public void receiveDamage(int monsterDamage) {
-        setAidenHealth(getAidenHealth() - monsterDamage);
+        setaidenHealth(getaidenHealth() - monsterDamage);
     }
     public void powerStrike() {
         aidenDamage += 10;
@@ -27,17 +26,17 @@ public class AidenService{
         }
         //aumentar vidas
         public void incrementHealth(int bonus) {
-            setAidenHealth(getAidenHealth() + bonus);
+            setAidenHealth(getaidenHealth() + bonus);
         
         }
         //hacer un boolean para saber si aiden esta vivo o si esta muerto
         public boolean aidenisAlive() {
-            return getAidenHealth() > 0;
+            return getaidenHealth() > 0;
         }
         //hacer un metodo que imprima cuando aide esta muerto y sacar estadisticas
 
          public void aidenDie() {
-        if (getAidenHealth() <= 0);
+        if (getaidenHealth() <= 0);
             System.out.println("Aiden ha muerto.");
             System.out.println(stat());
          }
@@ -56,6 +55,6 @@ public class AidenService{
             // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'updateAiden'");
         }
-        
+
     }
 
