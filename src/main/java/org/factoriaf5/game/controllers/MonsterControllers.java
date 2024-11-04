@@ -2,16 +2,19 @@ package org.factoriaf5.game.controllers;
 
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.services.MonsterService;
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
 @RestController
 @RequestMapping("/monsters")
@@ -40,6 +43,36 @@ public class MonsterControllers {
     public ResponseEntity<List<MonsterModel>> getAllMonsters() {
         List<MonsterModel> monsters = monsterService.getAllMonsters();
         return ResponseEntity.ok(monsters);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<MonsterModel> updateMonster(@PathVariable Long id, @RequestBody MonsterModel monster) {
+        MonsterModel updatedMonster = monsterService.updateMonster(id, monster);
+        return ResponseEntity.ok(updatedMonster);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMonster(@PathVariable Long id) {
+        monsterService.deleteMonster(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{id}/attack")
+    public ResponseEntity<Integer> monsterAttack(@PathVariable Long id) {
+        int damage = monsterService.monsterAttack(id);
+        return ResponseEntity.ok(damage);
+    }
+
+    @PostMapping("/{id}/receive-damage")
+    public ResponseEntity<MonsterModel> monsterReceiveDamage(@PathVariable Long id, @RequestParam int damage) {
+        MonsterModel updatedMonster = monsterService.monsterReceiveDamage(id, damage);
+        return ResponseEntity.ok(updatedMonster);
+    }
+
+    @GetMapping("/{id}/is-alive")
+    public ResponseEntity<Boolean> isMonsterAlive(@PathVariable Long id) {
+        boolean isAlive = monsterService.isMonsterAlive(id);
+        return ResponseEntity.ok(isAlive);
     }
 
 

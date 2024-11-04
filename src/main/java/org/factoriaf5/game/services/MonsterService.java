@@ -112,5 +112,25 @@ public class MonsterService {
         repository.save(monster);
     }
 
+    public void deleteMonster(Long id) {
+        repository.deleteById(id);
+    }
+    public int monsterAttack(Long id) {
+        MonsterModel monster = getMonsterById(id);
+        return monster.getMonsterDamage();
+    }
+
+    public MonsterModel monsterReceiveDamage(Long id, int damage) {
+        MonsterModel monster = getMonsterById(id);
+        int newHealth = Math.max(0, monster.getMonsterHealth() - damage);
+        monster.setMonsterHealth(newHealth);
+        return repository.save(monster);
+    }
+
+    public boolean isMonsterAlive(Long id) {
+        MonsterModel monster = getMonsterById(id);
+        return monster.getMonsterHealth() > 0;
+    }
+
 
 }
