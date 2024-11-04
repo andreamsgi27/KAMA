@@ -14,12 +14,12 @@ public class MonsterModel {
     @Enumerated(EnumType.STRING)
     private String typeMonster;
     
-    private Long monsterDamage;
-    private Long monsterHealth;
+    private int monsterDamage;
+    private int monsterHealth;
     private String monsterName;
-    private Long bonus;
+    private int bonus;
     
-    public MonsterModel(String type, Long damage, Long health, String name, Long bonus){
+    public MonsterModel(String type, int damage, int health, String name, int bonus){
         this.typeMonster = type;
         this.monsterDamage = damage;
         this.monsterHealth = health;
@@ -39,19 +39,19 @@ public class MonsterModel {
         this.typeMonster = typeMonster;
     }
 
-    public Long getMonsterDamage() {
+    public int getMonsterDamage() {
         return monsterDamage;
     }
 
-    public void setMonsterDamage(Long monsterDamage) {
+    public void setMonsterDamage(int monsterDamage) {
         this.monsterDamage = monsterDamage;
     }
 
-    public Long getMonsterHealth() {
+    public int getMonsterHealth() {
         return monsterHealth;
     }
 
-    public void setMonsterHealth(Long monsterHealth) {
+    public void setMonsterHealth(int monsterHealth) {
         this.monsterHealth = monsterHealth;
     }
 
@@ -63,11 +63,11 @@ public class MonsterModel {
         this.monsterName = monsterName;
     }
 
-    public Long getBonus() {
+    public int getBonus() {
         return bonus;
     }
 
-    public void setBonus(Long bonus) {
+    public void setBonus(int bonus) {
         this.bonus = bonus;
     }
 }
