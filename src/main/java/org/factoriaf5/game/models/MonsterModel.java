@@ -2,8 +2,6 @@ package org.factoriaf5.game.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,7 +16,7 @@ public class MonsterModel {
     @Column(name = "id_monster")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
+    @Column(name = "type_monster")
     private String typeMonster;
 
     private int monsterDamage;
