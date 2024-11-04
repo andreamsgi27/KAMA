@@ -1,10 +1,7 @@
 package org.factoriaf5.game.services;
 
-import java.util.List;
 
-import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
-import org.factoriaf5.game.repositories.AidenRepository;
 import org.springframework.stereotype.Service;
 @Service
 public class AidenService{
@@ -51,6 +48,8 @@ public class AidenService{
         } */
         
 
+        /* Esto estaba, pero no lo veo necesario =
+        
         public Aiden getAiden() {
             // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'getAiden'");
@@ -58,7 +57,7 @@ public class AidenService{
         public Aiden updateAiden(Aiden aidenDetails) {
             // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'updateAiden'");
-        }
+        } */
         
     }
 

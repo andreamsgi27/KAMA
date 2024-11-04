@@ -24,7 +24,7 @@ class MonsterModelTests {
     assertEquals(type, monster.getTypeMonster());
     assertEquals(Long.valueOf(damage), monster.getMonsterDamage());
     assertEquals(Long.valueOf(health), monster.getMonsterHealth());
-    assertEquals(name, monster.getMonsterName());
+    assertEquals(name, MonsterModel.getMonsterName());
     assertEquals(bonus, monster.getBonus());
 
 }
@@ -77,7 +77,7 @@ void returnCorrectMonsterNameAfterSettingIt() {
     MonsterModel monster = new MonsterModel("Zombie", 100, 1000, "Morti", 10);
     String newName = "Alduin";
     monster.setMonsterName(newName);
-    assertEquals(newName, monster.getMonsterName());
+    assertEquals(newName, MonsterModel.getMonsterName());
 
 }
 
@@ -112,7 +112,7 @@ void handleNullValuesForTypeMonsterAndMonsterName() {
     MonsterModel monster = new MonsterModel(null, 100, 200, null, 10);
     
     assertNull(monster.getTypeMonster());
-    assertNull(monster.getMonsterName());
+    assertNull(MonsterModel.getMonsterName());
     assertEquals(100L, monster.getMonsterDamage());
     assertEquals(200L, monster.getMonsterHealth());
     assertEquals(10, monster.getBonus());
