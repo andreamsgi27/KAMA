@@ -11,7 +11,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 class MonsterModelTests {
 
 	@Test
-void createMonsterModelWithValidParameters() {
+    void createMonsterModelWithValidParameters() {
 
     String type = "Zombie";
     int damage = 100;

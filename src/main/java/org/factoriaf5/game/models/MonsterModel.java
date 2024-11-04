@@ -17,9 +17,9 @@ public class MonsterModel {
     private Long monsterDamage;
     private Long monsterHealth;
     private String monsterName;
-    private int bonus;
+    private Long bonus;
     
-    public MonsterModel(String type, int damage, int health, String name, int bonus){
+    public MonsterModel(String type, Long damage, Long health, String name, Long bonus){
         this.typeMonster = type;
         this.monsterDamage = damage;
         this.monsterHealth = health;
@@ -63,11 +63,11 @@ public class MonsterModel {
         this.monsterName = monsterName;
     }
 
-    public int getBonus() {
+    public Long getBonus() {
         return bonus;
     }
 
-    public void setBonus(int bonus) {
+    public void setBonus(Long bonus) {
         this.bonus = bonus;
     }
 }
