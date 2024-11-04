@@ -1,9 +1,6 @@
 package org.factoriaf5.game.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
-
-@Data
 @Entity
 @Table(name = "backpack")
 public class Backpack {
@@ -32,6 +29,46 @@ public class Backpack {
     // Constructor con parámetros
     public Backpack(Long id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Items getItem1() {
+        return item1;
+    }
+
+    public void setItem1(Items item1) {
+        this.item1 = item1;
+    }
+
+    public Items getItem2() {
+        return item2;
+    }
+
+    public void setItem2(Items item2) {
+        this.item2 = item2;
+    }
+
+    public Items getItem3() {
+        return item3;
+    }
+
+    public void setItem3(Items item3) {
+        this.item3 = item3;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 }

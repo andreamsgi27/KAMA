@@ -1,4 +1,3 @@
-
 package org.factoriaf5.game.models;
 
 
