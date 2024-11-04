@@ -13,7 +13,7 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; // Renombrado de gameId a id
+    private Long id; // Renombrado de gameId a id
 
     @NotNull(message = "El nombre del jugador no puede ser nulo")
     private String playerName;
@@ -27,11 +27,11 @@ public class Game {
     private LocalDateTime gameDate; // Cambiado a LocalDateTime
 
     // Getters y Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
