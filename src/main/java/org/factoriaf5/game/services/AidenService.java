@@ -1,29 +1,29 @@
 package org.factoriaf5.game.services;
-  
+
 import java.util.List;
 
 import org.factoriaf5.game.models.Aiden;
+import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.AidenRepository;
 import org.springframework.stereotype.Service;
 @Service
 public class AidenService{
-   
+
         //public void recibir daño y habilidades
     public void receiveDamage(int monsterDamage) {
         setAidenHealth(getAidenHealth() - monsterDamage);
     }
     public void powerStrike() {
-        aidenDamage += 10;
+        setAidenDamage(getAidenDamage() + 10);
     }
     
     public int shield() {
     
-        int monsterAttack = Monster.getMonsterAttack();
+        int monsterAttack = MonsterModel.getMonsterAttack();
         int reducedAttack = monsterAttack - 5;
         reducedAttack = reducedAttack > 0 ? reducedAttack : 0;
-        Monster.setMonsterAttack(reducedAttack);
-        return reducedAttack;   
-               
+        MonsterModel.setMonsterAttack(reducedAttack);
+        return reducedAttack;
         }
         //aumentar vidas
         public void incrementHealth(int bonus) {
@@ -36,18 +36,21 @@ public class AidenService{
         }
         //hacer un metodo que imprima cuando aide esta muerto y sacar estadisticas
 
-         public void aidenDie() {
+        public void aidenDie() {
         if (getAidenHealth() <= 0);
             System.out.println("Aiden ha muerto.");
-            System.out.println(stat());
-         }
+            //System.out.println(stat());
+        }
         
-        public String stat() {
+        //aun no implementado, reservado a futuro:
+        /*public String stat() {
             return "Estadísticas de la partida:\n" +  
                     "Puntuación: " + getscore() + "\n" +
                     "Nivel que ha muerto: " + getlevels() + "\n" +
                     "Contador de eventos: " + geteventcont();
-      }
+        } */
+        
+
         public Aiden getAiden() {
             // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'getAiden'");

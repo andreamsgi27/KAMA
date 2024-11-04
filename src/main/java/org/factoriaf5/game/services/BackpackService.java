@@ -1,11 +1,10 @@
 package org.factoriaf5.game.services;
 
-import org.factoriaf5.game.Items;
 import org.factoriaf5.game.models.Backpack;
+import org.factoriaf5.game.models.Items;
+import org.factoriaf5.game.repositories.BackpackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import main.java.org.factoriaf5.game.repositories.BackpackRepository;
 
 @Service
 public class BackpackService {

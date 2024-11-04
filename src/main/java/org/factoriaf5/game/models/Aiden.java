@@ -7,11 +7,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "Aiden");
+@Table(name = "Aiden")
 public class Aiden {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    private final Long id;
     private String aidenName;
     private String aidenDescription;
     private String aidenAbility;
@@ -23,7 +23,7 @@ public class Aiden {
         this.aidenName = aidenName;
         this.aidenDescription = aidenDescription;
         this.aidenAbility = aidenAbility;
-        this.aidenHealth = 100; 
+        this.aidenHealth = 100;
         this.aidenDamage = 15;
 
     }
@@ -43,14 +43,14 @@ public class Aiden {
         public String getaidenDescription() {
             return aidenDescription;
         }
-  
+
         public void setaidenDescription(String aidenDescription) {
             this.aidenDescription = aidenDescription;
         }
         public String getaidenAbility() {
             return aidenAbility;
         }
-  
+
         public void setaidenAbility(String aidenAbility) {
             this.aidenAbility = aidenAbility;
         }
@@ -66,5 +66,11 @@ public class Aiden {
     // Métodos get y set para aidenDamage
     public int getAidenDamage() {
         return aidenDamage;
+    }
+
+    //Falta aidenReceiveDamage==
+
+    public void receiveDamage(int totalDamage) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

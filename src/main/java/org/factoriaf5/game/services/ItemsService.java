@@ -1,10 +1,13 @@
 package org.factoriaf5.game.services;
 
-import org.factoriaf5.game.Items;
 import org.factoriaf5.game.repositories.ItemsRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Random;
+
+import org.factoriaf5.game.models.Items;
+import org.factoriaf5.game.models.MonsterModel;
 
 @Service
 public class ItemsService {

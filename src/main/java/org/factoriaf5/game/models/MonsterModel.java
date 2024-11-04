@@ -23,51 +23,51 @@ public class MonsterModel {
     
     private int monsterDamage;
     private int monsterHealth;
-    private String monsterName;
-    private int bonus;
+    private static String monsterName;
+        private int bonus;
+        
+        public MonsterModel(String type, int damage, int health, String name, int bonus){
+            this.typeMonster = type;
+            this.monsterDamage = damage;
+            this.monsterHealth = health;
+            MonsterModel.monsterName = name;
+            this.bonus = bonus;
+        }
     
-    public MonsterModel(String type, int damage, int health, String name, int bonus){
-        this.typeMonster = type;
-        this.monsterDamage = damage;
-        this.monsterHealth = health;
-        this.monsterName = name;
-        this.bonus = bonus;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTypeMonster() {
-        return typeMonster;
-    }
-
-    public void setTypeMonster(String typeMonster) {
-        this.typeMonster = typeMonster;
-    }
-
-    public int getMonsterDamage() {
-        return monsterDamage;
-    }
-
-    public void setMonsterDamage(int monsterDamage) {
-        this.monsterDamage = monsterDamage;
-    }
-
-    public int getMonsterHealth() {
-        return monsterHealth;
-    }
-
-    public void setMonsterHealth(int monsterHealth) {
-        this.monsterHealth = monsterHealth;
-    }
-
-    public String getMonsterName() {
-        return monsterName;
+        public Long getId() {
+            return id;
+        }
+    
+        public String getTypeMonster() {
+            return typeMonster;
+        }
+    
+        public void setTypeMonster(String typeMonster) {
+            this.typeMonster = typeMonster;
+        }
+    
+        public int getMonsterDamage() {
+            return monsterDamage;
+        }
+    
+        public void setMonsterDamage(int monsterDamage) {
+            this.monsterDamage = monsterDamage;
+        }
+    
+        public int getMonsterHealth() {
+            return monsterHealth;
+        }
+    
+        public void setMonsterHealth(int monsterHealth) {
+            this.monsterHealth = monsterHealth;
+        }
+    
+        public static String getMonsterName() {
+            return monsterName;
     }
 
     public void setMonsterName(String monsterName) {
-        this.monsterName = monsterName;
+        MonsterModel.monsterName = monsterName;
     }
 
     public int getBonus() {

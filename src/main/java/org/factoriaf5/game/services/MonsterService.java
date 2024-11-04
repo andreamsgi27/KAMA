@@ -1,5 +1,6 @@
 package org.factoriaf5.game.services;
 
+import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.MonsterRepository;
 
@@ -20,13 +21,13 @@ public class MonsterService {
         int baseDamage  = monster.getMonsterDamage();
         int totalDamage = habilityMonster(monster, baseDamage);
         heroe.receiveDamage(totalDamage);
-        System.out.println("El "+ monster.getMonsterName() +" Ataca a Aiden");
+        System.out.println("El "+ MonsterModel.getMonsterName() +" Ataca a Aiden");
     }
 
     public int habilityMonster(MonsterModel monster, int baseDamage){
         switch(monster.getTypeMonster()){
             case "Esqueleto":
-                 return horda(monster, baseDamage);   
+                return horda(monster, baseDamage);
             case "Fantasma":
                 return invisible(monster, baseDamage);
             case "Vampiro":
@@ -56,7 +57,7 @@ public class MonsterService {
         int stolenLife = baseDamage / 2;
         monster.setMonsterHealth(monster.getMonsterHealth() + stolenLife);
         System.out.println("El vampiro te ha robado "+ stolenLife +" de tu vida! ");
-        return baseDamage + stolenLife; 
+        return baseDamage + stolenLife;
     }
 
     public int invisible(MonsterModel monster, int baseDamage/*llamo a la clase correspondiente de items */){
@@ -64,7 +65,7 @@ public class MonsterService {
          * syso("usas un objeto que anula las habilidades del monstruo");
          * return monster.getMonsterDamage();
         } */
-       Random random = new Random();
+    Random random = new Random();
         if (random.nextBoolean()) {
             System.out.println("El Fantasma se vuelve invisible y evade el ataque de Aiden");
             return 0;
