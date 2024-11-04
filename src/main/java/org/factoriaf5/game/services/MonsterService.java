@@ -1,11 +1,11 @@
 package org.factoriaf5.game.services;
 
+import java.util.List;
+import java.util.Random;
+
 import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.MonsterRepository;
-
-import java.util.Random;
-import java.util.List;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -26,12 +26,15 @@ public class MonsterService {
 
     public int habilityMonster(MonsterModel monster, int baseDamage){
         switch(monster.getTypeMonster()){
-            case "Esqueleto":
+            case "Esqueleto" -> {
                 return horda(monster, baseDamage);
-            case "Fantasma":
+            }
+            case "Fantasma" -> {
                 return invisible(monster, baseDamage);
-            case "Vampiro":
+            }
+            case "Vampiro" -> {
                 return lifeStealing(monster, baseDamage);
+            }
         }
                 return baseDamage;
     }
@@ -91,7 +94,7 @@ public class MonsterService {
     
     public MonsterModel updateMonster(Long id, MonsterModel updatedMonster) {
         MonsterModel monster = getMonsterById(id);
-        monster.setMonsterName(updatedMonster.getMonsterName());
+        monster.setMonsterName(MonsterModel.getMonsterName());
         monster.setMonsterDamage(updatedMonster.getMonsterDamage());
         monster.setTypeMonster(updatedMonster.getTypeMonster());
         // Actualiza otros campos según sea necesario

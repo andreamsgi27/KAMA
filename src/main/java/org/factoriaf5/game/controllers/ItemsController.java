@@ -1,6 +1,5 @@
 package org.factoriaf5.game.controllers;
 
-import org.factoriaf5.game.models.*;
 import org.factoriaf5.game.services.ItemsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
