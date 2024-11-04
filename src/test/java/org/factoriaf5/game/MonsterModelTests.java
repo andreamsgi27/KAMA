@@ -1,8 +1,8 @@
 package org.factoriaf5.game;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.factoriaf5.game.models.MonsterModel;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -55,7 +55,7 @@ public void returnCorrectTypeMonsterAfterSettingIt() {
 void returnCorrectMonsterDamageAfterSettingIt() {
 
     MonsterModel monster = new MonsterModel("Zombie", 100, 1000, "Morti", 50);
-    Long newDamage = 150L;
+    int newDamage = (int) 150L;
     monster.setMonsterDamage(newDamage);
     assertEquals(newDamage, monster.getMonsterDamage());
 
@@ -65,7 +65,7 @@ void returnCorrectMonsterDamageAfterSettingIt() {
 void returnCorrectMonsterHealthAfterSettingIt() {
 
     MonsterModel monster = new MonsterModel("Zombie", 100, 500, "Morti", 50);
-    Long newHealth = 1000L;
+    int newHealth = (int) 1000L;
     monster.setMonsterHealth(newHealth);
     assertEquals(newHealth, monster.getMonsterHealth());
 
@@ -98,8 +98,8 @@ void handleNegativeValuesForDamageAndHealth() {
 
     MonsterModel monster = new MonsterModel("Zombie", 100, 200, "Morti", 10);
     
-    monster.setMonsterDamage(-50L);
-    monster.setMonsterHealth(-100L);
+    monster.setMonsterDamage((int) -50L);
+    monster.setMonsterHealth((int) -100L);
     
     assertEquals(0L, monster.getMonsterDamage());
     assertEquals(0L, monster.getMonsterHealth());
