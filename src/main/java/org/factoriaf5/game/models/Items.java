@@ -13,8 +13,18 @@ public class Items {
     private String itemName;
     private String itemDescription;
 
-    public Items(String itemName) {
+
+    public Items() {
+        // Constructor vacío necesario
+    }
+
+    public Items(String itemName){
+        this.itemName = "";
+    }
+
+    public Items(String itemName, String itemDescription) {
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
 
     // Getters y setters

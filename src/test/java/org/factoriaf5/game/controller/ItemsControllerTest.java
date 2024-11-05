@@ -9,7 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(controllers = Items.class)
 
-public class ItemsServiceTest {
+public class ItemsControllerTest {
     
 
     @Autowired
