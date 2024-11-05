@@ -6,9 +6,11 @@ import java.util.Random;
 import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.MonsterRepository;
+import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
 
+@Service
 public class MonsterService {
 
     private final MonsterRepository repository;

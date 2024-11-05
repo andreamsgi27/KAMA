@@ -2,66 +2,69 @@ package org.factoriaf5.game.services;
 
 import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
+import org.factoriaf5.game.repositories.AidenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AidenService {
 
-    private final Aiden aiden;
-    private final MonsterModel monster;  // Se agrega una instancia de MonsterModel
+    private final AidenRepository aidenRepository;
 
     @Autowired
-    public AidenService(Aiden aiden, MonsterModel monster) {  // Constructor con inyección de dependencias
-        this.aiden = aiden;
-        this.monster = monster;
+    public AidenService(AidenRepository aidenRepository) {
+        this.aidenRepository = aidenRepository;
     }
 
     // Obtener el objeto Aiden
     public Aiden getAiden() {
-        return aiden;
+        return aidenRepository.findById(1L)  // Ajusta el ID según el caso
+                .orElseThrow(() -> new RuntimeException("Aiden no encontrado"));
     }
 
     // Actualizar el objeto Aiden con nuevos detalles
     public Aiden updateAiden(Aiden aidenDetails) {
+        Aiden aiden = getAiden();
         aiden.setAidenName(aidenDetails.getAidenName());
         aiden.setAidenDescription(aidenDetails.getAidenDescription());
         aiden.setAidenAbility(aidenDetails.getAidenAbility());
         aiden.setAidenHealth(aidenDetails.getAidenHealth());
         aiden.setAidenDamage(aidenDetails.getAidenDamage());
-        return aiden;
+        return aidenRepository.save(aiden);
     }
 
     // Recibir daño y aplicar habilidades
     public void receiveDamage(int monsterDamage) {
+        Aiden aiden = getAiden();
         aiden.setAidenHealth(aiden.getAidenHealth() - monsterDamage);
+        aidenRepository.save(aiden);
     }
 
     public void powerStrike() {
+        Aiden aiden = getAiden();
         aiden.setAidenDamage(aiden.getAidenDamage() + 10);
+        aidenRepository.save(aiden);
     }
 
-    public int shield() {
-        int currentMonsterDamage = monster.getMonsterDamage();  // Obtener monsterDamage
-        int reducedDamage = currentMonsterDamage - 5;
-        reducedDamage = Math.max(reducedDamage, 0);            // Evitar valores negativos
-        monster.setMonsterDamage(reducedDamage);               // Aplicar el daño reducido
+    public int shield(MonsterModel monster) {
+        int reducedDamage = monster.getMonsterDamage() - 5;
+        reducedDamage = Math.max(reducedDamage, 0);  
+        monster.setMonsterDamage(reducedDamage);  
         return reducedDamage;
     }
 
-    // Incrementar vidas
     public void incrementHealth(int bonus) {
+        Aiden aiden = getAiden();
         aiden.setAidenHealth(aiden.getAidenHealth() + bonus);
+        aidenRepository.save(aiden);
     }
 
-    // Verificar si Aiden está vivo
     public boolean isAidenAlive() {
-        return aiden.getAidenHealth() > 0;
+        return getAiden().getAidenHealth() > 0;
     }
 
-    // Mostrar mensaje cuando Aiden muere
     public void aidenDie() {
-        if (aiden.getAidenHealth() <= 0) {
+        if (!isAidenAlive()) {
             System.out.println("Aiden ha muerto.");
         }
     }
