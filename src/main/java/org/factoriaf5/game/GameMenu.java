@@ -1,5 +1,3 @@
-
-
 package org.factoriaf5.game;
 
 import java.awt.Desktop;
@@ -49,14 +47,16 @@ public class GameMenu {
         System.out.print("Ingrese el nombre del jugador: ");
         inputPlayerName = scanner.nextLine();
         System.out.println("Jugador registrado: " + inputPlayerName);
-        // Aquí queda guardado el nombre del jugador
+
+        // Llamada a GameLogic.main() después de registrar el nombre
+        GameLogic.main(new String[] {}); // Correcta llamada con argumento
     }
 
     public void openGamesTable() {
         String url = "http://localhost:8080/games";
         System.out.println("Acceda a la tabla de juegos en el siguiente enlace:");
         System.out.println(url);
-    
+
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI(url));
