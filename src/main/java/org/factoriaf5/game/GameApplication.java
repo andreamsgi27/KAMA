@@ -11,5 +11,7 @@ public class GameApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GameApplication.class, args);
+        GameMenu gameMenu = new GameMenu();
+        gameMenu.showMenu();
     }
 }
