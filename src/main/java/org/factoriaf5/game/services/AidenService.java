@@ -69,5 +69,3 @@ public class AidenService {
         }
     }
 }
-//INSERT INTO Aiden(id, aidenName, aidenDescription, aidenAbility, aidenHealth, aidenDamage) VALUES
-//(1, 'AIDEN', 'Es un heroe que posee habilidades cuya finalidad es derrotar al mago Mortis', 'Golpe potente y escudo protector', 100,15);
