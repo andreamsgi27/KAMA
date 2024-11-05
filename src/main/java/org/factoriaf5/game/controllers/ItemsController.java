@@ -28,7 +28,7 @@ public class ItemsController {
 
     // Endpoint para usar una lanza contra un monstruo
     @PostMapping("/spear")
-    public int useSpear(@RequestParam int aidenDamage, @RequestParam Long monsterId) {
+    public int useSpear(@RequestParam int aidenDamage) {
         return itemsService.spear(aidenDamage);
     }
 
