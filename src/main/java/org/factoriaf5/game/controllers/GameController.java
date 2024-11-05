@@ -2,7 +2,6 @@ package org.factoriaf5.game.controllers;
 
 import org.factoriaf5.game.models.Game;
 import org.factoriaf5.game.services.GameService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,7 +15,6 @@ public class GameController {
 
     private final GameService gameService;
 
- /*    @Autowired */
     public GameController(GameService gameService) {
         this.gameService = gameService;
     }

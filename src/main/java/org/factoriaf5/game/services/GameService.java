@@ -2,7 +2,6 @@ package org.factoriaf5.game.services;
 
 import org.factoriaf5.game.models.Game;
 import org.factoriaf5.game.repositories.GameRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class GameService {
 
     private final GameRepository gameRepository;
 
-    /* @Autowired */
+ 
     public GameService(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
