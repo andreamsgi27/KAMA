@@ -39,7 +39,7 @@ public class MonsterControllers {
         return ResponseEntity.ok(monster);
     }
 
-    @GetMapping
+    @GetMapping("/getall")
     public ResponseEntity<List<MonsterModel>> getAllMonsters() {
         List<MonsterModel> monsters = monsterService.getAllMonsters();
         return ResponseEntity.ok(monsters);
