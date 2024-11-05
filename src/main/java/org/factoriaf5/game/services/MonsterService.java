@@ -88,9 +88,26 @@ public class MonsterService {
     }
 
     // Método para crear un nuevo monstruo en la base de datos
-    public MonsterModel createMonster(String type, String name, int damage, int health) {
-        MonsterModel monster = new MonsterModel(name, damage, health, type, 0); 
+    public MonsterModel createMonster(String type, String name, int damage, int health, int bonus) {
+        MonsterModel monster = new MonsterModel(name, damage, health, type, bonus); 
         return repository.save(monster);
+    }
+
+    public MonsterModel createMonsterRandom() {
+        Random random = new Random();
+        int randomNumber = random. nextInt(3) + 1;
+
+        switch(randomNumber){
+            case 1: 
+                return createMonster("Esqueleto", "Esqueleto " , 10, 50, 10);
+            case 2: 
+                return createMonster("Vampiro", "Vampiro " , 15, 60, 20);
+            case 3: 
+                return createMonster("Fantasma", "Fantasma " , 20, 65, 15);
+            default:
+                throw new IllegalStateException("Número inesperado: " + randomNumber);
+        }
+
     }
 
     // Método para obtener un monstruo por su ID
