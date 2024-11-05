@@ -1,8 +1,7 @@
 package org.factoriaf5.game.controllers;
 
-import org.factoriaf5.game.models.Game; // Asegúrate de que Game esté en el paquete correcto
-import org.factoriaf5.game.repositories.GameRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.factoriaf5.game.models.Game;
+import org.factoriaf5.game.services.GameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,17 +13,43 @@ import java.util.List;
 @RequestMapping("/games")
 public class GameController {
 
-    @Autowired
-    private GameRepository gameRepository;
+    private final GameService gameService;
+
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
 
     @GetMapping
     public List<Game> getAllGames() {
-        return gameRepository.findAll();
+        return gameService.getAllGames();
     }
 
     @PostMapping
     public ResponseEntity<Game> createGame(@Validated @RequestBody Game game) {
-        Game savedGame = gameRepository.save(game);
+        Game savedGame = gameService.createGame(game);
         return new ResponseEntity<>(savedGame, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Game> getGameById(@PathVariable Long id) {
+        return gameService.getGameById(id)
+                .map(ResponseEntity::ok)
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody Game updatedGame) {
+        try {
+            Game savedGame = gameService.updateGame(id, updatedGame);
+            return ResponseEntity.ok(savedGame);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteGame(@PathVariable Long id) {
+        gameService.deleteGame(id);
+        return ResponseEntity.noContent().build();
     }
 }
