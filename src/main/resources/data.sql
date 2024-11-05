@@ -8,7 +8,7 @@ INSERT INTO games (game_date, player_name, game_cleared, final_score) VALUES ('2
 INSERT INTO games (game_date, player_name, game_cleared, final_score) VALUES ('2024-10-13', 'Arancha', FALSE, 220);
 INSERT INTO games (game_date, player_name, game_cleared, final_score) VALUES ('2024-10-15', 'Anaís', FALSE, 390);
 INSERT INTO games (game_date, player_name, game_cleared, final_score) VALUES ('2024-10-14', 'Esmeralda', TRUE, 22250);
-INSERT INTO monsters (type_monster, monsterDamage, monsterName, monsterHealth, bonus) VALUES
-('Esqueleto', 5, 'Esqueleto', 50, 10),
-('Vampiro', 7, 'Vampiro', 60, 15),
-('Fantasma', 10, 'Fantasma', 70, 20);
+INSERT INTO monsters (id_monster, type_monster, monster_damage, monster_health, monster_name, bonus, life_stealing_active, invisible_active, num_skeletons)
+VALUES (1, 'Esqueleto', 5, 50, 'Esqueleto', 10, NULL, NULL, 5),
+       (2, 'Vampiro', 7, 60, 'Vampiro', 15, TRUE, NULL, NULL),
+       (3, 'Fantasma', 10, 70, 'Fantasma', 20, NULL, TRUE, NULL);

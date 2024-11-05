@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
+
 @Entity
 @Table(name = "monsters")
 public class MonsterModel {
@@ -19,15 +21,25 @@ public class MonsterModel {
     @Column(name = "type_monster")
     private String typeMonster;
 
+    @Column(name = "monster_damage")
     private int monsterDamage;
+
+    @Column(name = "monster_health")
     private int monsterHealth;
+
+    @Column(name = "monster_name")
     private String monsterName;
+
     private int bonus;
 
     // Atributos para habilidades especiales
-    private boolean lifeStealingActive = false;
-    private boolean invisibleActive = false;
-    private int numSkeletons = 1; // Número de esqueletos en una horda
+    private Boolean lifeStealingActive = false;
+    private Boolean invisibleActive = false;
+    private Integer numSkeletons = 5; // Número de esqueletos en una horda
+
+    public MonsterModel() {
+        // Constructor vacío necesario para JPA
+    }
 
     public MonsterModel(String type, int damage, int health, String name, int bonus) {
         this.typeMonster = type;
