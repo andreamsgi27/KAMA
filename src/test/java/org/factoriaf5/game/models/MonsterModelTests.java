@@ -1,10 +1,8 @@
-package org.factoriaf5.game;
+package org.factoriaf5.game.models;
 
-import org.factoriaf5.game.models.MonsterModel;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.util.ReflectionTestUtils;
 
 //@SpringBootTest == si agregamos  esto, el test se ejecuta en un contexto de Spring Boot, lo cual da fallos por todas partes
