@@ -1,7 +1,7 @@
 package org.factoriaf5.game.controller;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -92,7 +92,7 @@ public class ItemsControllerTest {
     }
 
     @Test
-    @DisplayName("Test /garlic")
+    @DisplayName("Test /garlic, ajo lo puedes usar")
     void testGarlic() throws Exception {
     Long monsterId = 1L;
     boolean success = true;
@@ -113,6 +113,30 @@ public class ItemsControllerTest {
 
     assertThat(response.getStatus(), is(200));
     assertThat(response.getContentAsString(), is(String.valueOf(msgSuccess)));
+    }
+
+    @Test
+    @DisplayName("Test /garlic el ajo no lo puedes usar")
+    void testGarlicFalse() throws Exception {
+    Long monsterId = 1L;
+    boolean success = false;
+    String msgFailure = "No se pudo aplicar el ajo.";
+    //String msgFailure = "No se pudo aplicar el ajo.";
+
+
+
+    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
+    when(itemsService.garlic(monsterId)).thenReturn(success);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/garlic")
+            .param("monsterId", String.valueOf(monsterId)) // Pasamos el parámetro en la solicitud
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(msgFailure)));
     }
 
 
