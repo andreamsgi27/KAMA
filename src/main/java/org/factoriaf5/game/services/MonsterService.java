@@ -89,7 +89,7 @@ public class MonsterService {
 
     // Método para crear un nuevo monstruo en la base de datos
     public MonsterModel createMonster(String type, String name, int damage, int health, int bonus) {
-        MonsterModel monster = new MonsterModel(name, damage, health, type, bonus); 
+        MonsterModel monster = new MonsterModel(name, type, health, damage, bonus); 
         return repository.save(monster);
     }
 

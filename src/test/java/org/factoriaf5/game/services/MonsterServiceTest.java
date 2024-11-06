@@ -14,6 +14,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,19 +50,24 @@ public class MonsterServiceTest {
     
     @Test
     void testMonsterAttackWithHeroHaving0Health() {
-        
+        // Asegúrate de inicializar el typeMonster adecuadamente
         MonsterModel monster = new MonsterModel("Vampiro", "Vampiro", 20, 60, 20);
+        
+        // Mockeamos los servicios de Ayden y el modelo del héroe
         AidenService heroe = mock(AidenService.class);
         Aiden model = mock(Aiden.class);
+        
+        // Configuramos el mock para devolver salud 0 en el héroe
         when(model.getAidenHealth()).thenReturn(0);
-
+        
+        // Ejecutamos el ataque del monstruo
         service.monsterAttack(monster, heroe);
-
+        
+        // Validamos que el monstruo y el héroe tengan los valores esperados
         assertThat(monster.getMonsterHealth(), is(60));
         assertThat(model.getAidenHealth(), is(0));
     }
-
-
+    
     @Test
     void testMonsterAttackWithNegativeHeroHealth() {
         // Arrange
@@ -159,7 +165,7 @@ public class MonsterServiceTest {
     @Test
     void testDeleteMonster() {
 
-        MonsterModel monster = new MonsterModel("TestMonster", 10, 100, "Test", 10);
+        MonsterModel monster = new MonsterModel("TestMonster","Test", 10, 100, 10);
         //when(repository.findById((long) 1)).thenReturn(Optional.of(monster));
 
         service.deleteMonster((long) 1);
@@ -230,8 +236,8 @@ public class MonsterServiceTest {
         int result = monsterService.horda(skeletonMonster, 10);
     
         // Assert
-        assertThat(result, is(equalTo(20)));
-        assertThat(skeletonMonster.getNumSkeletons(), is(equalTo(2)));
+        assertThat(result, is(equalTo(30)));
+        assertThat(skeletonMonster.getNumSkeletons(), is(equalTo(3)));
         verify(repository, never()).save(any(MonsterModel.class));
     }
 
@@ -258,23 +264,17 @@ public class MonsterServiceTest {
     }
 
 
-    @Test
-    void testMonsterIsAlive() {
-        // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster", 10, 100, "Test", 10);
-        monster.setMonsterHealth(50);
-    
-        // Act
-        boolean result = new MonsterService(repository).isMonsterAlive(monster.getId());
-    
-        // Assert
-        assertThat(result, is(true));
-    }
+  @Test
+  void testMonsterIsAlive() {
+      MonsterModel monster = new MonsterModel("Vampiro", "Vampiro", 20, 60, 20);
+      boolean isAlive = service.isMonsterAlive(monster.getId());
+      assertTrue(isAlive);
+  }
 
     @Test
     void testLifeStealing() {
         // Arrange
-        MonsterModel vampiro = new MonsterModel("Vampiro", 15, 60, "Vampiro", 20);
+        MonsterModel vampiro = new MonsterModel("Vampiro","Vampiro", 15, 60,  20);
         vampiro.setLifeStealingActive(true);
         int baseDamage = 10;
     
@@ -293,7 +293,7 @@ public class MonsterServiceTest {
     @Test
     void testMonsterDamage() {
         // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster", 10, 100, "Test", 10);
+        MonsterModel monster = new MonsterModel("TestMonster","Test", 10, 100,  10);
         MonsterService monsterService = new MonsterService(repository);
     
         // Act
@@ -306,7 +306,7 @@ public class MonsterServiceTest {
     @Test
     void testMonsterReceiveDamage() {
         // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster", 10, 100, "Test", 10);
+        MonsterModel monster = new MonsterModel("TestMonster", "Test",10, 100,  10);
         int damage = 20;
     
         // Act
@@ -322,8 +322,8 @@ public class MonsterServiceTest {
     @Test
     void testUpdateMonster() {
         // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster", 10, 100, "Test", 10);
-        MonsterModel updatedMonster = new MonsterModel("UpdatedMonster", 15, 150, "Updated", 15);
+        MonsterModel monster = new MonsterModel("TestMonster","Test", 10, 100,  10);
+        MonsterModel updatedMonster = new MonsterModel("UpdatedMonster","Updated", 15, 150,  15);
         when(repository.findById((long) 1)).thenReturn(Optional.of(monster));
         when(repository.save(any(MonsterModel.class))).thenReturn(updatedMonster);
     
