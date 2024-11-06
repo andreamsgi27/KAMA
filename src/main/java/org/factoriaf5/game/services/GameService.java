@@ -1,18 +1,18 @@
 package org.factoriaf5.game.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.factoriaf5.game.models.Game;
 import org.factoriaf5.game.repositories.GameRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class GameService {
 
     private final GameRepository gameRepository;
 
-
+ 
     public GameService(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
