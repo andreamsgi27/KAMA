@@ -109,7 +109,7 @@ public class ItemsServicesTest {
     monster.setTypeMonster("Vampiro");
     when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
 
-    boolean result = service.glasses(1L);
+    boolean result = service.garlic(1L);
 
     assertThat(result, equalTo(false));
     assertThat(monster.isLifeStealingActive(), equalTo(false));
@@ -122,9 +122,34 @@ public class ItemsServicesTest {
     monster.setTypeMonster("Fantasma");
     when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
 
-    boolean result = service.glasses(1L);
+    boolean result = service.garlic(1L);
 
     assertThat(result, equalTo(true));
+    }
+
+    @Test
+    void testWhistleTrue() {
+    MonsterModel monster = new MonsterModel();
+    monster.setId(1L);
+    monster.setTypeMonster("Esqueleto");
+    when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
+
+    boolean result = service.whistle(1L);
+
+    assertThat(result, equalTo(true));
+    assertThat(monster.getNumSkeletons(), equalTo(1));
+    }
+
+    @Test
+    void testWhistleFalse() {
+    MonsterModel monster = new MonsterModel();
+    monster.setId(1L);
+    monster.setTypeMonster("Fantasma");
+    when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
+
+    boolean result = service.whistle(1L);
+
+    assertThat(result, equalTo(false));
     }
 
 
