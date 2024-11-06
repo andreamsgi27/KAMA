@@ -1,24 +1,21 @@
 package org.factoriaf5.game.controller;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
 import org.factoriaf5.game.controllers.ItemsController;
 import org.factoriaf5.game.services.ItemsService;
-import org.factoriaf5.game.services.MonsterService;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = ItemsController.class)
 public class ItemsControllerTest {
@@ -28,9 +25,6 @@ public class ItemsControllerTest {
 
     @MockBean
     private ItemsService itemsService;
-
-    @MockBean
-    private MonsterService monsterService;
 
     @Test
     @DisplayName("Test /itemfound de controller")

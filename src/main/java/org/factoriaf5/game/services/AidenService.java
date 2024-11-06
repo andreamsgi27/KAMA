@@ -3,7 +3,6 @@ package org.factoriaf5.game.services;
 import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.AidenRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +10,7 @@ public class AidenService {
 
     private static AidenRepository aidenRepository;
 
-    @Autowired
+    
     public AidenService(AidenRepository aidenRepository) {
         AidenService.aidenRepository = aidenRepository;
     }
