@@ -19,5 +19,6 @@ INSERT INTO items (item_name, item_description) VALUES
 ('Ajo', 'Un diente de ajo, eficaz contra los vampiros.'), 
 ('Gafas', 'Unas gafas que permiten ver a los fantasmas.'), 
 ('Silbato', 'Un silbato que puede atraer a un lobo amigo.');
+
 INSERT INTO Aiden(id, aiden_Name, aiden_Description, aiden_Ability, aiden_Health, aiden_Damage)
 VALUES (1, 'AIDEN', 'Es un heroe que posee habilidades cuya finalidad es derrotar al mago Mortis', 'Golpe potente y escudo protector', 100,15);

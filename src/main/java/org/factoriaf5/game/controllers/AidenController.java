@@ -31,6 +31,7 @@ public class AidenController {
         Aiden updatedAiden = aidenService.updateAiden(aidenDetails);
         return ResponseEntity.ok(updatedAiden);
     }
+    
 }
 
 
