@@ -91,5 +91,29 @@ public class ItemsControllerTest {
     assertThat(response.getContentAsString(), is(String.valueOf(aidenHealthFinal)));
     }
 
+    @Test
+    @DisplayName("Test /garlic")
+    void testGarlic() throws Exception {
+    Long monsterId = 1L;
+    boolean success = true;
+    String msgSuccess = "El ajo desactiva la habilidad de robo de vida del vampiro.";
+    //String msgFailure = "No se pudo aplicar el ajo.";
+
+
+
+    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
+    when(itemsService.garlic(monsterId)).thenReturn(success);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/garlic")
+            .param("monsterId", String.valueOf(monsterId)) // Pasamos el parámetro en la solicitud
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(msgSuccess)));
+    }
+
 
 }
