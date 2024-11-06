@@ -1,7 +1,6 @@
 package org.factoriaf5.game.controllers;
 
 import org.factoriaf5.game.services.ItemsService;
-import org.factoriaf5.game.services.MonsterService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemsController {
 
     private final ItemsService itemsService;
-    private final MonsterService monsterService;
 
-    public ItemsController(ItemsService itemsService, MonsterService monsterService) {
+    public ItemsController(ItemsService itemsService) {
         this.itemsService = itemsService;
-        this.monsterService = monsterService;
     }
 
     // Endpoint para obtener un ítem aleatorio
-    @GetMapping("/found")
+    @GetMapping("/itemfound")
     public String itemFound() {
         return itemsService.itemFound();
     }

@@ -36,7 +36,7 @@ public class ItemsControllerTest {
     @DisplayName("Test /itemfound de controller")
     void testIndex() throws Exception {
         // Simulamos que el servicio devuelve el valor "Anillo"
-        String foundItem = "Anillo";
+        String foundItem = "Ajo";
         when(itemsService.itemFound()).thenReturn(foundItem);
 
         // Ejecutamos el request GET
