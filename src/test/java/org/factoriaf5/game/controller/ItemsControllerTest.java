@@ -8,10 +8,12 @@ import static org.hamcrest.Matchers.is;
 
 import org.factoriaf5.game.controllers.ItemsController;
 import org.factoriaf5.game.services.ItemsService;
+import org.factoriaf5.game.services.MonsterService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
@@ -67,6 +69,26 @@ public class ItemsControllerTest {
 
     assertThat(response.getStatus(), is(200));
     assertThat(response.getContentAsString(), is(String.valueOf(expectedDamage)));
+    }
+
+    @Test
+    @DisplayName("Test /potion")
+    void testPotion() throws Exception {
+    int aidenHealth = 50;
+    int aidenHealthFinal = 70;
+
+    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
+    when(itemsService.potion(aidenHealth)).thenReturn(aidenHealthFinal);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/potion")
+            .param("aidenHealth", String.valueOf(aidenHealth)) // Pasamos el parámetro en la solicitud
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(aidenHealthFinal)));
     }
 
 
