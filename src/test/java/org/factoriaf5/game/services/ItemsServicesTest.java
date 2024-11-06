@@ -75,20 +75,57 @@ public class ItemsServicesTest {
     }
 
     @Test
-    void testGlasses() {
+    void testGlassesTrue() {
     // Preparamos los datos
     MonsterModel monster = new MonsterModel();
     monster.setId(1L);
     monster.setTypeMonster("Fantasma");
-    when(mrepository.findById(1L)).thenReturn(Optional.of(monster)); // Devuelves un Optional del monster
+    when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
 
     // Llamamos al método
     boolean result = service.glasses(1L);
 
     // Verificamos el resultado
     assertThat(result, equalTo(true));
-    assertThat(monster.isInvisibleActive(), equalTo(false)); // Verificamos que la invisibilidad fue desactivada
-}
+    assertThat(monster.isInvisibleActive(), equalTo(false));
+    }
+
+    @Test
+    void testGlassesFalse() {
+    MonsterModel monster = new MonsterModel();
+    monster.setId(1L);
+    monster.setTypeMonster("Vampiro");
+    when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
+
+    boolean result = service.glasses(1L);
+
+    assertThat(result, equalTo(false));
+    }
+
+    @Test
+    void testGarlicTrue() {
+    MonsterModel monster = new MonsterModel();
+    monster.setId(1L);
+    monster.setTypeMonster("Vampiro");
+    when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
+
+    boolean result = service.glasses(1L);
+
+    assertThat(result, equalTo(false));
+    assertThat(monster.isLifeStealingActive(), equalTo(false));
+    }
+
+    @Test
+    void testGarlicFalse() {
+    MonsterModel monster = new MonsterModel();
+    monster.setId(1L);
+    monster.setTypeMonster("Fantasma");
+    when(mrepository.findById(1L)).thenReturn(Optional.of(monster));
+
+    boolean result = service.glasses(1L);
+
+    assertThat(result, equalTo(true));
+    }
 
 
 
