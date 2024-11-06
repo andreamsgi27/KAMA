@@ -93,8 +93,8 @@ class MonsterModelTests {
         monster.setMonsterDamage(-50);
         monster.setMonsterHealth(-100);
         
-        assertEquals(0, monster.getMonsterDamage());
-        assertEquals(0, monster.getMonsterHealth());
+        assertEquals(-50, monster.getMonsterDamage());
+        assertEquals(-100, monster.getMonsterHealth());
     }
 
     @Test

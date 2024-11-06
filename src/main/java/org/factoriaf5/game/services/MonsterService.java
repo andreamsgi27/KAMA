@@ -3,7 +3,6 @@ package org.factoriaf5.game.services;
 import java.util.List;
 import java.util.Random;
 
-import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.MonsterRepository;
 import org.springframework.stereotype.Service;
@@ -13,13 +12,13 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class MonsterService {
 
-    private final MonsterRepository repository;
+    private static MonsterRepository repository;
 
     public MonsterService(MonsterRepository repository) {
         this.repository = repository;
     }
 
-    public void monsterAttack(MonsterModel monster, Aiden heroe) {
+    public void monsterAttack(MonsterModel monster, AidenService heroe) {
         int baseDamage  = monster.getMonsterDamage();
         int totalDamage = applyMonsterAbility(monster, baseDamage);
         heroe.receiveDamage(totalDamage);
@@ -155,7 +154,7 @@ public class MonsterService {
     }
 
     // Método auxiliar para realizar un ataque del monstruo
-    public int monsterAttack(Long id) {
+    public int monsterDamage(Long id) {
         MonsterModel monster = getMonsterById(id);
         return monster.getMonsterDamage();
     }
