@@ -41,11 +41,11 @@ public class MonsterModel {
         // Constructor vacío necesario para JPA
     }
 
-    public MonsterModel(String type, int damage, int health, String name, int bonus) {
+    public MonsterModel(String type, String name, int health, int damage, int bonus) {
         this.typeMonster = type;
-        this.monsterDamage = damage;
-        this.monsterHealth = health;
         this.monsterName = name;
+        this.monsterHealth = health;
+        this.monsterDamage = damage;        
         this.bonus = bonus;
     }
 

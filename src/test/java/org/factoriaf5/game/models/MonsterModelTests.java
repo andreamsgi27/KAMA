@@ -13,24 +13,24 @@ class MonsterModelTests {
     void createMonsterModelWithValidParameters() {
 
         String type = "Zombie";
-        int damage = 100;
-        int health = 500;
         String name = "Morti";
+        int health = 100;
+        int damage = 500;
         int bonus = 50;
 
-        MonsterModel monster = new MonsterModel(type, damage, health, name, bonus);
+        MonsterModel monster = new MonsterModel(type, name, health, damage, bonus);
 
         assertEquals(type, monster.getTypeMonster());
-        assertEquals(damage, monster.getMonsterDamage());
-        assertEquals(health, monster.getMonsterHealth());
         assertEquals(name, monster.getMonsterName());
+        assertEquals(health, monster.getMonsterHealth());
+        assertEquals(damage, monster.getMonsterDamage());
         assertEquals(bonus, monster.getBonus());
     }
 
     @Test
     void returnCorrectIdAfterSettingIt() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 1000, "Morti", 10);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 1000, 10);
         Long expectedId = 1L;
         
         // Use reflection to set the private id field
@@ -42,7 +42,7 @@ class MonsterModelTests {
     @Test
     public void returnCorrectTypeMonsterAfterSettingIt() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 200, "Morti", 10);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 200, 10);
         monster.setTypeMonster("Goblin");
         assertEquals("Goblin", monster.getTypeMonster());
     }
@@ -50,7 +50,7 @@ class MonsterModelTests {
     @Test
     void returnCorrectMonsterDamageAfterSettingIt() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 1000, "Morti", 50);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 1000, 50);
         int newDamage = 150;
         monster.setMonsterDamage(newDamage);
         assertEquals(newDamage, monster.getMonsterDamage());
@@ -59,7 +59,7 @@ class MonsterModelTests {
     @Test
     void returnCorrectMonsterHealthAfterSettingIt() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 500, "Morti", 50);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 500, 50);
         int newHealth = 1000;
         monster.setMonsterHealth(newHealth);
         assertEquals(newHealth, monster.getMonsterHealth());
@@ -68,7 +68,7 @@ class MonsterModelTests {
     @Test
     void returnCorrectMonsterNameAfterSettingIt() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 1000, "Morti", 10);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 1000, 10);
         String newName = "Alduin";
         monster.setMonsterName(newName);
         assertEquals(newName, monster.getMonsterName());
@@ -77,7 +77,7 @@ class MonsterModelTests {
     @Test
     void returnCorrectBonusAfterSettingIt() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 1000, "Morti", 0);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 1000, 0);
         int expectedBonus = 50;
         
         monster.setBonus(expectedBonus);
@@ -88,31 +88,31 @@ class MonsterModelTests {
     @Test
     void handleNegativeValuesForDamageAndHealth() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 200, "Morti", 10);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 200, 10);
         
-        monster.setMonsterDamage(-50);
-        monster.setMonsterHealth(-100);
+        monster.setMonsterHealth(-50);
+        monster.setMonsterDamage(-100);
         
-        assertEquals(0, monster.getMonsterDamage());
-        assertEquals(0, monster.getMonsterHealth());
+        assertEquals(-50, monster.getMonsterHealth());
+        assertEquals(-100, monster.getMonsterDamage());
     }
 
     @Test
     void handleNullValuesForTypeMonsterAndMonsterName() {
 
-        MonsterModel monster = new MonsterModel(null, 100, 200, null, 10);
+        MonsterModel monster = new MonsterModel(null, null, 100, 200, 10);
         
         assertNull(monster.getTypeMonster());
         assertNull(monster.getMonsterName());
-        assertEquals(100, monster.getMonsterDamage());
-        assertEquals(200, monster.getMonsterHealth());
+        assertEquals(100, monster.getMonsterHealth());
+        assertEquals(200, monster.getMonsterDamage());
         assertEquals(10, monster.getBonus());
     }
 
     @Test
     void setBonusToZero() {
 
-        MonsterModel monster = new MonsterModel("Zombie", 100, 200, "Morti", 10);
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 200, 10);
         monster.setBonus(0);
         assertEquals(0, monster.getBonus());
     }

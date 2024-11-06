@@ -29,7 +29,7 @@ public class MonsterControllers {
     
     @PostMapping("/post")
     public ResponseEntity<MonsterModel> createMonster(@RequestBody MonsterModel monster) {
-        MonsterModel createdMonster = monsterService.createMonster("Esqueleto", "Esqueleto", 10, 100);
+        MonsterModel createdMonster = monsterService.createMonster("Esqueleto", "Esqueleto", 10, 100, 0);
         return new ResponseEntity<>(createdMonster, HttpStatus.CREATED);
     }
 
