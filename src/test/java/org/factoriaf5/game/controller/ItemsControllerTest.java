@@ -57,11 +57,10 @@ public class ItemsControllerTest {
     int aidenDamage = 100;
     int expectedDamage = 110;
 
-    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
     when(itemsService.spear(aidenDamage)).thenReturn(expectedDamage);
 
     MockHttpServletResponse response = mockMvc.perform(post("/items/spear")
-            .param("aidenDamage", String.valueOf(aidenDamage)) // Pasamos el parámetro en la solicitud
+            .param("aidenDamage", String.valueOf(aidenDamage))
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andReturn()
@@ -77,11 +76,10 @@ public class ItemsControllerTest {
     int aidenHealth = 50;
     int aidenHealthFinal = 70;
 
-    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
     when(itemsService.potion(aidenHealth)).thenReturn(aidenHealthFinal);
 
     MockHttpServletResponse response = mockMvc.perform(post("/items/potion")
-            .param("aidenHealth", String.valueOf(aidenHealth)) // Pasamos el parámetro en la solicitud
+            .param("aidenHealth", String.valueOf(aidenHealth))
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andReturn()
@@ -97,15 +95,11 @@ public class ItemsControllerTest {
     Long monsterId = 1L;
     boolean success = true;
     String msgSuccess = "El ajo desactiva la habilidad de robo de vida del vampiro.";
-    //String msgFailure = "No se pudo aplicar el ajo.";
 
-
-
-    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
     when(itemsService.garlic(monsterId)).thenReturn(success);
 
     MockHttpServletResponse response = mockMvc.perform(post("/items/garlic")
-            .param("monsterId", String.valueOf(monsterId)) // Pasamos el parámetro en la solicitud
+            .param("monsterId", String.valueOf(monsterId))
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andReturn()
@@ -121,15 +115,13 @@ public class ItemsControllerTest {
     Long monsterId = 1L;
     boolean success = false;
     String msgFailure = "No se pudo aplicar el ajo.";
-    //String msgFailure = "No se pudo aplicar el ajo.";
 
 
 
-    // Simulamos que el servicio devuelve el daño calculado (110 en este caso)
     when(itemsService.garlic(monsterId)).thenReturn(success);
 
     MockHttpServletResponse response = mockMvc.perform(post("/items/garlic")
-            .param("monsterId", String.valueOf(monsterId)) // Pasamos el parámetro en la solicitud
+            .param("monsterId", String.valueOf(monsterId)) 
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andReturn()
@@ -137,6 +129,98 @@ public class ItemsControllerTest {
 
     assertThat(response.getStatus(), is(200));
     assertThat(response.getContentAsString(), is(String.valueOf(msgFailure)));
+    }
+
+    @Test
+    @DisplayName("Test /glasses puedes usarlas")
+    void testGlasses() throws Exception {
+    Long monsterId = 1L;
+    boolean success = true;
+    String msg = "Las gafas desactivan la invisibilidad del fantasma.";
+
+
+
+    
+    when(itemsService.glasses(monsterId)).thenReturn(success);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/glasses")
+            .param("monsterId", String.valueOf(monsterId))
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(msg)));
+    }
+
+    @Test
+    @DisplayName("Test /glasses no puedes usarlas")
+    void testGlassesFalse() throws Exception {
+    Long monsterId = 1L;
+    boolean success = false;
+    String msg = "No se pudo aplicar las gafas.";
+
+
+
+    
+    when(itemsService.glasses(monsterId)).thenReturn(success);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/glasses")
+            .param("monsterId", String.valueOf(monsterId))
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(msg)));
+    }
+
+    @Test
+    @DisplayName("Test /whistle puedes usarlo")
+    void testWhistle() throws Exception {
+    Long monsterId = 1L;
+    boolean success = true;
+    String msg = "El silbato dispersa la horda de esqueletos.";
+
+
+
+    
+    when(itemsService.whistle(monsterId)).thenReturn(success);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/whistle")
+            .param("monsterId", String.valueOf(monsterId))
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(msg)));
+    }
+
+    @Test
+    @DisplayName("Test /whistle puedes usarlo")
+    void testWhistleFalse() throws Exception {
+    Long monsterId = 1L;
+    boolean success = false;
+    String msg = "No se pudo usar el silbato.";
+
+
+
+    
+    when(itemsService.whistle(monsterId)).thenReturn(success);
+
+    MockHttpServletResponse response = mockMvc.perform(post("/items/whistle")
+            .param("monsterId", String.valueOf(monsterId))
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+
+    assertThat(response.getStatus(), is(200));
+    assertThat(response.getContentAsString(), is(String.valueOf(msg)));
     }
 
 
