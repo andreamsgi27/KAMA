@@ -60,9 +60,10 @@ public class MonsterService {
     public int lifeStealing(MonsterModel monster, int baseDamage) {
         if (monster.isLifeStealingActive()) {
             int stolenLife = baseDamage / 2;
-            monster.setMonsterHealth(monster.getMonsterHealth() + stolenLife);
+            int newLife = monster.getMonsterHealth() + stolenLife;
+            monster.setMonsterHealth(newLife);
             System.out.println("El vampiro te ha robado " + stolenLife + " de vida.");
-            return baseDamage + stolenLife;
+            return baseDamage;
         } else {
             System.out.println("Usaste un ítem que desactiva la habilidad de robo de vida.");
             return baseDamage;
@@ -133,19 +134,6 @@ public class MonsterService {
     // Método para obtener monstruos por tipo
     public List<MonsterModel> getMonstersByType(String type) {
         return repository.findByTypeMonster(type);
-    }
-
-    // Método para verificar si un monstruo está vivo
-    public boolean isMonsterAlive(MonsterModel monster) {
-        return monster.getMonsterHealth() > 0;
-    }
-
-    // Método para aplicar daño al monstruo
-    public void monsterReceiveDamage(MonsterModel monster, int damage) {
-        int currentHealth = monster.getMonsterHealth();
-        int newHealth = Math.max(0, currentHealth - damage);
-        monster.setMonsterHealth(newHealth);
-        repository.save(monster);
     }
 
     // Método para eliminar un monstruo

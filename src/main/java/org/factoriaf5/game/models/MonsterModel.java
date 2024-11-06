@@ -37,7 +37,7 @@ public class MonsterModel {
     private Boolean invisibleActive = false;
     private Integer numSkeletons = 5; // Número de esqueletos en una horda
 
-    public MonsterModel() {
+    public MonsterModel(String name, String type, int damage, int health, int bonus1) {
         // Constructor vacío necesario para JPA
     }
 
