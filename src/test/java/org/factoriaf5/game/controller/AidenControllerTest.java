@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.Mockito.when;
@@ -58,9 +59,10 @@ class AidenControllerTest {
                 .andExpect(jsonPath("$.aidenDescription").value("Es un héroe que posee habilidades."));
     }
 
+   
     @Test
     void testUpdateAiden() throws Exception {
-        // Crear un objeto Aiden actualizado
+         //Crear un objeto Aiden actualizado
         Aiden updatedAiden = new Aiden();
         updatedAiden.setAidenName("Updated Aiden");
         updatedAiden.setAidenDescription("Descripción actualizada");
@@ -68,17 +70,26 @@ class AidenControllerTest {
         updatedAiden.setAidenHealth(120);
         updatedAiden.setAidenDamage(20);
 
-        // Simular la respuesta del servicio
+        //Simular la respuesta del servicio
         when(aidenService.updateAiden(updatedAiden)).thenReturn(updatedAiden);
 
         // Hacer la petición PUT y verificar el estado de la respuesta
         mockMvc.perform(put("/api/aiden")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(updatedAiden)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.aidenName").value("Updated Aiden"))
-                .andExpect(jsonPath("$.aidenDescription").value("Descripción actualizada"))
+                       .content(new ObjectMapper().writeValueAsString(updatedAiden)))
+               .andExpect(status().isOk())
+             .andExpect(jsonPath("$.aidenName").value("Updated Aiden"))
+               .andExpect(jsonPath("$.aidenDescription").value("Descripción actualizada"))
                 .andExpect(jsonPath("$.aidenHealth").value(120))
                 .andExpect(jsonPath("$.aidenDamage").value(20));
+    }
+       @Test
+    public void testGetAidenNotFound() throws Exception {
+        // Simulamos que no se encuentra el objeto Aiden
+        when(aidenService.getAiden()).thenThrow(new RuntimeException("Aiden no encontrado"));
+
+        // Hacemos la solicitud GET y verificamos que se lance una excepción
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/aiden"))
+                .andExpect(status().isNotFound()); // Verificamos que el código de estado sea 404
     }
 }
