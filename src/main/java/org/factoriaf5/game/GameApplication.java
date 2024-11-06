@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GameApplication {
     public static void main(String[] args) {
         SpringApplication.run(GameApplication.class, args);
-        GameMenu gameMenu = new GameMenu();
-        gameMenu.showMenu();
+ /*        GameMenu gameMenu = new GameMenu();
+        gameMenu.showMenu(); */
     }
 }
