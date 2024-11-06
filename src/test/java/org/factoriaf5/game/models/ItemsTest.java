@@ -27,4 +27,10 @@ public class ItemsTest {
     void testGetItemDescription(){
         assertEquals("A weapon used for hunting", items.getItemDescription());
     }
+
+    @Test
+    void testGetId(){
+        items.setId(1L);
+        assertEquals(1L, items.getId());
+    }
 }

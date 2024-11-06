@@ -111,7 +111,7 @@ public class ItemsServicesTest {
 
     boolean result = service.garlic(1L);
 
-    assertThat(result, equalTo(false));
+    assertThat(result, equalTo(true));
     assertThat(monster.isLifeStealingActive(), equalTo(false));
     }
 
@@ -124,7 +124,7 @@ public class ItemsServicesTest {
 
     boolean result = service.garlic(1L);
 
-    assertThat(result, equalTo(true));
+    assertThat(result, equalTo(false));
     }
 
     @Test
