@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AidenService {
 
-    private final AidenRepository aidenRepository;
+    private static AidenRepository aidenRepository;
 
     @Autowired
     public AidenService(AidenRepository aidenRepository) {
-        this.aidenRepository = aidenRepository;
+        AidenService.aidenRepository = aidenRepository;
     }
 
     // Obtener el objeto Aiden

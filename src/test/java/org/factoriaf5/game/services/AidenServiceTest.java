@@ -10,7 +10,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+
+import java.util.Optional;
 
 class AidenServiceTest {
 
@@ -140,12 +143,24 @@ class AidenServiceTest {
         assertTrue(aidenService.isAidenAlive());
     }
 
-    @Test
-    void testAidenDie() {
+   //@Test
+    //void testAidenDie() {
         // Simulamos que el Aiden está muerto
-        aiden.setAidenHealth(0);
+      //  aiden.setAidenHealth(0);
 
         // Verificamos que se imprima el mensaje correcto
+       // aidenService.aidenDie();
+    //}
+    @Test
+    public void testAidenDie() {
+        // Configurar el mock
+        when(aidenRepository.findById(1L)).thenReturn(Optional.of(aiden));
+
+        // Reducir la salud a 0
+        aiden.setAidenHealth(0);
+
+        // Comprobar si Aiden muere
         aidenService.aidenDie();
-    }
+        // Si la salud es 0, la salida será "Aiden ha muerto"
+}
 }
