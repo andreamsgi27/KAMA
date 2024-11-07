@@ -21,15 +21,16 @@ public class MonsterModel {
     @Column(name = "type_monster")
     private String typeMonster;
 
+    @Column(name = "monster_name")
+    private String monsterName;
+
     @Column(name = "monster_damage")
     private int monsterDamage;
 
     @Column(name = "monster_health")
     private int monsterHealth;
 
-    @Column(name = "monster_name")
-    private String monsterName;
-
+    @Column(name = "monster_bonus")
     private int bonus;
 
     // Atributos para habilidades especiales
@@ -37,30 +38,58 @@ public class MonsterModel {
     private Boolean invisibleActive = false;
     private Integer numSkeletons = 5; // Número de esqueletos en una horda
 
-    public MonsterModel() {
-        // Constructor vacío necesario para JPA
-    }
+    
 
-    public MonsterModel(String type, int damage, int health, String name, int bonus) {
-        this.typeMonster = type;
-        this.monsterDamage = damage;
-        this.monsterHealth = health;
-        this.monsterName = name;
+    public MonsterModel(String typeMonster, String monsterName, int monsterDamage, int monsterHealth, int bonus) {
+        this.typeMonster = typeMonster;
+        this.monsterName = monsterName;
+        this.monsterDamage = monsterDamage;
+        this.monsterHealth = monsterHealth;
         this.bonus = bonus;
     }
-
     // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id;}
-    public String getTypeMonster() { return typeMonster; }
-    public void setTypeMonster(String typeMonster) { this.typeMonster = typeMonster; }
-    public int getMonsterDamage() { return monsterDamage; }
-    public void setMonsterDamage(int monsterDamage) { this.monsterDamage = monsterDamage; }
-    public int getMonsterHealth() { return monsterHealth; }
-    public void setMonsterHealth(int monsterHealth) { this.monsterHealth = monsterHealth; }
-    public String getMonsterName() { return monsterName; }
-    public void setMonsterName(String monsterName) { this.monsterName = monsterName; }
-    public int getBonus() { return bonus; }
+    public Long getId() { 
+        return id; 
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getTypeMonster() { 
+        return typeMonster; 
+    }
+
+    public void setTypeMonster(String typeMonster) { 
+        this.typeMonster = typeMonster; 
+    }
+
+    public int getMonsterDamage() { 
+        return monsterDamage; 
+    }
+
+    public void setMonsterDamage(int monsterDamage) { 
+        this.monsterDamage = monsterDamage; 
+    }
+
+    public int getMonsterHealth() { 
+        return monsterHealth; 
+    }
+
+    public void setMonsterHealth(int monsterHealth) {
+         this.monsterHealth = monsterHealth; 
+        }
+
+    public String getMonsterName() {
+         return monsterName; 
+        }
+
+    public void setMonsterName(String monsterName) { 
+        this.monsterName = monsterName; 
+    }
+
+    public int getBonus() {
+        return bonus;
+     }
+
     public void setBonus(int bonus) { this.bonus = bonus; }
 
     // Métodos booleanos para las habilidades especiales
@@ -72,4 +101,9 @@ public class MonsterModel {
 
     public int getNumSkeletons() { return numSkeletons; }
     public void setNumSkeletons(int numSkeletons) { this.numSkeletons = numSkeletons; }
+
+    public Object isMonsterAlive() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isMonsterAlive'");
+    }
 }

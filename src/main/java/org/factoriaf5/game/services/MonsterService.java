@@ -3,7 +3,6 @@ package org.factoriaf5.game.services;
 import java.util.List;
 import java.util.Random;
 
-import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.MonsterRepository;
 import org.springframework.stereotype.Service;
@@ -13,13 +12,13 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class MonsterService {
 
-    private final MonsterRepository repository;
+    private static MonsterRepository repository;
 
     public MonsterService(MonsterRepository repository) {
         this.repository = repository;
     }
 
-    public void monsterAttack(MonsterModel monster, Aiden heroe) {
+    public void monsterAttack(MonsterModel monster, AidenService heroe) {
         int baseDamage  = monster.getMonsterDamage();
         int totalDamage = applyMonsterAbility(monster, baseDamage);
         heroe.receiveDamage(totalDamage);
@@ -61,9 +60,10 @@ public class MonsterService {
     public int lifeStealing(MonsterModel monster, int baseDamage) {
         if (monster.isLifeStealingActive()) {
             int stolenLife = baseDamage / 2;
-            monster.setMonsterHealth(monster.getMonsterHealth() + stolenLife);
+            int newLife = monster.getMonsterHealth() + stolenLife;
+            monster.setMonsterHealth(newLife);
             System.out.println("El vampiro te ha robado " + stolenLife + " de vida.");
-            return baseDamage + stolenLife;
+            return baseDamage;
         } else {
             System.out.println("Usaste un ítem que desactiva la habilidad de robo de vida.");
             return baseDamage;
@@ -89,7 +89,7 @@ public class MonsterService {
 
     // Método para crear un nuevo monstruo en la base de datos
     public MonsterModel createMonster(String type, String name, int damage, int health, int bonus) {
-        MonsterModel monster = new MonsterModel(name, damage, health, type, bonus); 
+        MonsterModel monster = new MonsterModel(name, type, health, damage, bonus); 
         return repository.save(monster);
     }
 
@@ -136,26 +136,13 @@ public class MonsterService {
         return repository.findByTypeMonster(type);
     }
 
-    // Método para verificar si un monstruo está vivo
-    public boolean isMonsterAlive(MonsterModel monster) {
-        return monster.getMonsterHealth() > 0;
-    }
-
-    // Método para aplicar daño al monstruo
-    public void monsterReceiveDamage(MonsterModel monster, int damage) {
-        int currentHealth = monster.getMonsterHealth();
-        int newHealth = Math.max(0, currentHealth - damage);
-        monster.setMonsterHealth(newHealth);
-        repository.save(monster);
-    }
-
     // Método para eliminar un monstruo
     public void deleteMonster(Long id) {
         repository.deleteById(id);
     }
 
     // Método auxiliar para realizar un ataque del monstruo
-    public int monsterAttack(Long id) {
+    public int monsterDamage(Long id) {
         MonsterModel monster = getMonsterById(id);
         return monster.getMonsterDamage();
     }
