@@ -1,4 +1,4 @@
-package org.factoriaf5.game.controller;
+package org.factoriaf5.game.controllers;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

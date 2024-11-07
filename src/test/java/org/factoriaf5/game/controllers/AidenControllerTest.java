@@ -1,4 +1,4 @@
-package org.factoriaf5.game.controller;
+package org.factoriaf5.game.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.factoriaf5.game.controllers.AidenController;
 import org.factoriaf5.game.models.Aiden;

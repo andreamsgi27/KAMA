@@ -1,4 +1,4 @@
-package org.factoriaf5.game.controller;
+package org.factoriaf5.game.controllers;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

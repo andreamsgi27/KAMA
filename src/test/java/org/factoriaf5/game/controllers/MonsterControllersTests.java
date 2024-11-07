@@ -1,4 +1,4 @@
-package org.factoriaf5.game.controller;
+package org.factoriaf5.game.controllers;
 
 import org.factoriaf5.game.controllers.MonsterControllers;
 import org.factoriaf5.game.models.MonsterModel;
