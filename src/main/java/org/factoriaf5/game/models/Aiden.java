@@ -36,7 +36,9 @@ public class Aiden {
     public Long getId() {
         return id;
     }
-
+    public void setId(Long id) {
+        this.id = 1L;
+    }
     public String getAidenName() {
         return aidenName;
     }
@@ -80,5 +82,10 @@ public class Aiden {
     // Método para recibir daño
     public void receiveDamage(int totalDamage) {
         setAidenHealth(getAidenHealth() - totalDamage);
+    }
+
+    public void setId(long l) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setId'");
     }
 }

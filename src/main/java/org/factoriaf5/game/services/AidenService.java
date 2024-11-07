@@ -23,15 +23,15 @@ public class AidenService {
     }
 
     // Actualizar el objeto Aiden con nuevos detalles
-    //public Aiden updateAiden(Aiden aidenDetails) {
-      //  Aiden aiden = getAiden();
-       // aiden.setAidenName(aidenDetails.getAidenName());
-       // aiden.setAidenDescription(aidenDetails.getAidenDescription());
-       // aiden.setAidenAbility(aidenDetails.getAidenAbility());
-       // aiden.setAidenHealth(aidenDetails.getAidenHealth());
-       // aiden.setAidenDamage(aidenDetails.getAidenDamage());
-       // return aidenRepository.save(aiden);
-   // }
+    public Aiden updateAiden(Aiden aidenDetails) {
+       Aiden aiden = getAiden();
+       aiden.setAidenName(aidenDetails.getAidenName());
+       aiden.setAidenDescription(aidenDetails.getAidenDescription());
+       aiden.setAidenAbility(aidenDetails.getAidenAbility());
+        aiden.setAidenHealth(aidenDetails.getAidenHealth());
+       aiden.setAidenDamage(aidenDetails.getAidenDamage());
+       return aidenRepository.save(aiden);
+ }
 
     // Recibir daño y aplicar habilidades
     public Aiden receiveDamage(int monsterDamage) {
@@ -74,18 +74,19 @@ public class AidenService {
         throw new UnsupportedOperationException("Unimplemented method 'deleteAiden'");
     }
 
-    public void useAidenAbility(Aiden aiden) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'useAidenAbility'");
-    }
+   
     // Crea un nuevo Aiden
     public Aiden createAiden(Aiden aiden) {
         return aiden;  // Aquí simula guardar a Aiden y luego devolverlo
     }
 
-    // Actualiza a Aiden
-    public Aiden updateAiden(Aiden aiden) {
-        return aiden;  // Aquí simula la actualización de Aiden
+    public Aiden updateDamage(Long id, int newDamage) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateDamage'");
     }
 
+    public Aiden updateHealth(Long id, int newHealth) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateHealth'");
+    }
 }

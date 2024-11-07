@@ -3,6 +3,7 @@ package org.factoriaf5.game.models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AidenTest {
@@ -91,5 +92,19 @@ class AidenTest {
     void testInitialDamage() {
         // Verifica que el daño inicial de Aiden es 15
         assertEquals(15, aiden.getAidenDamage(), "El daño inicial debería ser 15.");
+    }
+    @Test
+    void testSetId() {
+        // Creamos una nueva instancia de Aiden
+        Aiden aiden = new Aiden();
+
+        // Asignamos un valor cualquiera para comprobar
+        Long testId = 123L;
+
+        // Llamamos al setter setId, que siempre asignará 1L
+        aiden.setId(testId);
+
+        // Verificamos que el valor de id es siempre 1L
+        assertThat(aiden.getId()).isEqualTo(1L);
     }
 }

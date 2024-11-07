@@ -9,8 +9,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 import java.util.Optional;
@@ -29,7 +31,7 @@ class AidenServiceTest {
     void setUp() {
         // Inicializamos el mock y el servicio
         MockitoAnnotations.openMocks(this);
-
+      
         // Crear un Aiden de ejemplo
         aiden = new Aiden();
         aiden.setAidenHealth(100);
@@ -155,4 +157,28 @@ class AidenServiceTest {
         aidenService.aidenDie();
         // Si la salud es 0, la salida será "Aiden ha muerto"
 }
-}
+  @Test
+    void testCreateAiden() {
+        // Creamos un objeto Aiden
+        Aiden aiden = new Aiden();
+        aiden.setAidenName("Aiden");
+        aiden.setAidenDescription("Un héroe");
+        aiden.setAidenAbility("Poder Supremo");
+
+        // Instanciamos la clase AidenService
+        AidenService aidenService = new AidenService(aidenRepository);
+
+        // Llamamos al método createAiden
+        Aiden createdAiden = aidenService.createAiden(aiden);
+
+        // Verificamos que el Aiden devuelto es el mismo que se pasó
+        assertThat(createdAiden).isEqualTo(aiden);
+
+        // Verificamos que los atributos también coinciden
+        assertThat(createdAiden.getAidenName()).isEqualTo("Aiden");
+        assertThat(createdAiden.getAidenDescription()).isEqualTo("Un héroe");
+        assertThat(createdAiden.getAidenAbility()).isEqualTo("Poder Supremo");
+    }
+ 
+    }
+
