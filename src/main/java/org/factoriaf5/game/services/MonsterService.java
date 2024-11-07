@@ -12,9 +12,8 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class MonsterService {
 
-    private static MonsterRepository repository;
+    private MonsterRepository repository;
 
-    @SuppressWarnings("static-access")
     public MonsterService(MonsterRepository repository) {
         this.repository = repository;
     }
