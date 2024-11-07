@@ -103,79 +103,83 @@ public void testCreateBackpack() {
 }/* */
 package org.factoriaf5.game.models;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.factoriaf5.game.services.BackpackService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class BackpackModelTest {
 
-    private BackpackModel backpack;
-    
+    private Backpack backpack;
+    private Items item1;
+    private Items item2;
+    private Items item3;
+
     @BeforeEach
     public void setUp() {
-        // Inicializamos un BackpackModel antes de cada prueba
-        backpack = new BackpackModel(1L, "Mochila de pruebas");
+        // Inicializamos los objetos necesarios para los tests
+        backpack = new Backpack(1L, "Mochila de pruebas");
+        item1 = new Items("Espada", "Una espada poderosa");
+        item2 = new Items("Escudo", "Un escudo resistente");
+        item3 = new Items("Poción", "Una poción curativa");
     }
 
     @Test
-    public void testConstructorWithParameters() {
-        // Verificar que el constructor con parámetros inicializa los valores correctamente
-        assertThat(backpack.getId()).isEqualTo(1L);
-        assertThat(backpack.getName()).isEqualTo("Mochila de pruebas");
-    }
-
-    @Test
-    public void testSetName() {
-        // Cambiar el nombre de la mochila y verificar que se actualiza correctamente
-        backpack.setName("Nueva Mochila");
-        assertThat(backpack.getName()).isEqualTo("Nueva Mochila");
-    }
-
-    @Test
-    public void testAddItemAtPosition1() {
-        // Crear un ítem y añadirlo a la posición 1
-        Items item1 = new Items("Espada", "Una espada poderosa");
-        backpack.addItem(item1, 1);
+    public void testAddItem1() {
+        // Asignamos item1 al primer slot de la mochila
+        backpack.setItem1(item1);
         assertThat(backpack.getItem1()).isEqualTo(item1);
     }
 
     @Test
-    public void testAddItemAtPosition2() {
-        // Crear un ítem y añadirlo a la posición 2
-        Items item2 = new Items("Escudo", "Un escudo resistente");
-        backpack.addItem(item2, 2);
+    public void testAddItem2() {
+        // Asignamos item2 al segundo slot de la mochila
+        backpack.setItem2(item2);
         assertThat(backpack.getItem2()).isEqualTo(item2);
     }
 
-    
     @Test
-    public void testAddItemAtPosition3() {
-        // Crear un ítem y añadirlo a la posición 3
-        Items item3 = new Items("Poción", "Una poción curativa");
-        backpack.addItem(item3, 3);
+    public void testAddItem3() {
+        // Asignamos item3 al tercer slot de la mochila
+        backpack.setItem3(item3);
         assertThat(backpack.getItem3()).isEqualTo(item3);
     }
 
     @Test
-    public void testAddItemAtInvalidPosition() {
-        // Verificar que no se añade ningún ítem si la posición es inválida
-        Items item = new Items("Amuleto", "Un amuleto místico");
-        backpack.addItem(item, 4);  // Posición inválida
+    public void testBackpackInitialization() {
+        // Verificamos que la mochila tiene los atributos iniciales correctos
+        assertThat(backpack.getId()).isEqualTo(1L);
+        assertThat(backpack.getName()).isEqualTo("Mochila de pruebas");
         assertThat(backpack.getItem1()).isNull();
         assertThat(backpack.getItem2()).isNull();
         assertThat(backpack.getItem3()).isNull();
     }
 
     @Test
-    public void testUnsupportedOperationExceptionInNoArgsConstructor() {
-        // Verificar que el constructor sin parámetros lanza UnsupportedOperationException
-        assertThrows(UnsupportedOperationException.class, () -> new BackpackModel());
+    public void testSetAndGetItems() {
+        // Asignamos los ítems y verificamos que cada getter devuelve el ítem correcto
+        backpack.setItem1(item1);
+        backpack.setItem2(item2);
+        backpack.setItem3(item3);
+
+        assertThat(backpack.getItem1()).isEqualTo(item1);
+        assertThat(backpack.getItem2()).isEqualTo(item2);
+        assertThat(backpack.getItem3()).isEqualTo(item3);
     }
 
     @Test
-    public void testUnsupportedOperationExceptionInSetItem1() {
-        // Verificar que el método setItem1 lanza UnsupportedOperationException
-        Items item = new Items("Espada", "Una espada poderosa");
-        assertThrows(UnsupportedOperationException.class, () -> backpack.setItem1(item));
+    void testSetName() {
+        // Asignamos un nuevo nombre a la mochila
+        backpack.setName("Mochila");
+        assertThat(backpack.getName()).isEqualTo("Mochila");
+    }
+
+    @Test
+    void setId(){
+        // Asignamos un nuevo id a la mochila
+        backpack.setId(2L);
+        assertThat(backpack.getId()).isEqualTo(2L);
     }
 }
