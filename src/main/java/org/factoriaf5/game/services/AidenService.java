@@ -23,27 +23,27 @@ public class AidenService {
     }
 
     // Actualizar el objeto Aiden con nuevos detalles
-    public Aiden updateAiden(Aiden aidenDetails) {
+    //public Aiden updateAiden(Aiden aidenDetails) {
+      //  Aiden aiden = getAiden();
+       // aiden.setAidenName(aidenDetails.getAidenName());
+       // aiden.setAidenDescription(aidenDetails.getAidenDescription());
+       // aiden.setAidenAbility(aidenDetails.getAidenAbility());
+       // aiden.setAidenHealth(aidenDetails.getAidenHealth());
+       // aiden.setAidenDamage(aidenDetails.getAidenDamage());
+       // return aidenRepository.save(aiden);
+   // }
+
+    // Recibir daño y aplicar habilidades
+    public Aiden receiveDamage(int monsterDamage) {
         Aiden aiden = getAiden();
-        aiden.setAidenName(aidenDetails.getAidenName());
-        aiden.setAidenDescription(aidenDetails.getAidenDescription());
-        aiden.setAidenAbility(aidenDetails.getAidenAbility());
-        aiden.setAidenHealth(aidenDetails.getAidenHealth());
-        aiden.setAidenDamage(aidenDetails.getAidenDamage());
+        aiden.setAidenHealth(aiden.getAidenHealth() - monsterDamage);
         return aidenRepository.save(aiden);
     }
 
-    // Recibir daño y aplicar habilidades
-    public void receiveDamage(int monsterDamage) {
-        Aiden aiden = getAiden();
-        aiden.setAidenHealth(aiden.getAidenHealth() - monsterDamage);
-        aidenRepository.save(aiden);
-    }
-
-    public void powerStrike() {
+    public Aiden powerStrike() {
         Aiden aiden = getAiden();
         aiden.setAidenDamage(aiden.getAidenDamage() + 10);
-        aidenRepository.save(aiden);
+        return aidenRepository.save(aiden);
     }
 
     public int shield(MonsterModel monster) {
@@ -68,4 +68,24 @@ public class AidenService {
             System.out.println("Aiden ha muerto.");
         }
     }
+
+    public void deleteAiden() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteAiden'");
+    }
+
+    public void useAidenAbility(Aiden aiden) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'useAidenAbility'");
+    }
+    // Crea un nuevo Aiden
+    public Aiden createAiden(Aiden aiden) {
+        return aiden;  // Aquí simula guardar a Aiden y luego devolverlo
+    }
+
+    // Actualiza a Aiden
+    public Aiden updateAiden(Aiden aiden) {
+        return aiden;  // Aquí simula la actualización de Aiden
+    }
+
 }

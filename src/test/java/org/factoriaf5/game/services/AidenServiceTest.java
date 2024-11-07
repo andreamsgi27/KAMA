@@ -143,14 +143,6 @@ class AidenServiceTest {
         assertTrue(aidenService.isAidenAlive());
     }
 
-   //@Test
-    //void testAidenDie() {
-        // Simulamos que el Aiden está muerto
-      //  aiden.setAidenHealth(0);
-
-        // Verificamos que se imprima el mensaje correcto
-       // aidenService.aidenDie();
-    //}
     @Test
     public void testAidenDie() {
         // Configurar el mock
