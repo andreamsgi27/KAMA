@@ -59,7 +59,7 @@ public class MonsterControllers {
 
     @PostMapping("/{id}/attack")
     public ResponseEntity<Integer> monsterAttack(@PathVariable Long id) {
-        int damage = monsterService.monsterAttack(id);
+        int damage = monsterService.monsterDamage(id);
         return ResponseEntity.ok(damage);
     }
 

@@ -35,7 +35,7 @@ public class MonsterControllersTests {
 @Test
 @DisplayName("create a new monster")
 void testCreateMonster() throws Exception {
-    MonsterModel monster = new MonsterModel(null, null, 0, 0, 0);
+    MonsterModel monster = new MonsterModel();
 
     monster.setTypeMonster("Esqueleto");
     monster.setMonsterName("Esqueleto");
@@ -59,7 +59,7 @@ void testCreateMonster() throws Exception {
     @Test
     @DisplayName("return a monster by ID")
     void testGetMonsterById() throws Exception {
-        MonsterModel monster = new MonsterModel("Esqueleto", "Esqueleto", 10, 100, 0);
+        MonsterModel monster = new MonsterModel();
         when(monsterService.getMonsterById(1L)).thenReturn(monster);
 
         MockHttpServletResponse response = mockMvc.perform(get("/monsters/1")
@@ -74,9 +74,8 @@ void testCreateMonster() throws Exception {
     @Test
     @DisplayName("return all monsters")
     void testGetAllMonsters() throws Exception {
-        List<MonsterModel> monsters = Arrays.asList(
-            new MonsterModel("Esqueleto", "Esqueleto", 10, 100, 0),
-            new MonsterModel("Vampiro", "Vampiro", 15, 60, 20)
+        List<MonsterModel> monsters = Arrays.asList(new MonsterModel(),
+            new MonsterModel()
         );
         when(monsterService.getAllMonsters()).thenReturn(monsters);
 
@@ -93,7 +92,7 @@ void testCreateMonster() throws Exception {
     @Test
     @DisplayName("update a monster")
     void testUpdateMonster() throws Exception {
-        MonsterModel updatedMonster = new MonsterModel(null, null, 0, 0, 0);
+        MonsterModel updatedMonster = new MonsterModel();
         when(monsterService.updateMonster(eq(1L), any(MonsterModel.class))).thenReturn(updatedMonster);
 
         MockHttpServletResponse response = mockMvc.perform(put("/monsters/1")
@@ -122,7 +121,7 @@ void testCreateMonster() throws Exception {
     @Test
     @DisplayName("return monster attack damage")
     void testMonsterAttack() throws Exception {
-        when(monsterService.monsterAttack(1L)).thenReturn(10);
+        when(monsterService.monsterDamage(1L)).thenReturn(10);
 
         MockHttpServletResponse response = mockMvc.perform(post("/monsters/1/attack")
                 .accept(MediaType.APPLICATION_JSON))
@@ -136,7 +135,7 @@ void testCreateMonster() throws Exception {
     @Test
     @DisplayName("handle monster receiving damage")
     void testMonsterReceiveDamage() throws Exception {
-        MonsterModel damagedMonster = new MonsterModel("Esqueleto", "Esqueleto", 10, 80, 0);
+        MonsterModel damagedMonster = new MonsterModel();
         when(monsterService.monsterReceiveDamage(eq(1L), eq(20))).thenReturn(damagedMonster);
 
         MockHttpServletResponse response = mockMvc.perform(post("/monsters/1/receive-damage")

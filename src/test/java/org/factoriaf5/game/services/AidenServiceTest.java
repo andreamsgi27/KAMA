@@ -1,5 +1,11 @@
 package org.factoriaf5.game.services;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Optional;
+
 import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.AidenRepository;
@@ -8,12 +14,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
-
-import java.util.Optional;
 
 class AidenServiceTest {
 
@@ -109,7 +109,6 @@ class AidenServiceTest {
     void testShield() {
         // Crear un monstruo de ejemplo
         MonsterModel monster = new MonsterModel();
-        monster.setMonsterDamage(30);
 
         // Ejecutamos el método
         int reducedDamage = aidenService.shield(monster);

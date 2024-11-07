@@ -1,5 +1,12 @@
 package org.factoriaf5.game.services;
 
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.contains;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -8,26 +15,11 @@ import java.util.Random;
 import org.factoriaf5.game.models.Aiden;
 import org.factoriaf5.game.models.MonsterModel;
 import org.factoriaf5.game.repositories.MonsterRepository;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,7 +43,7 @@ public class MonsterServiceTest {
     @Test
     void testMonsterAttackWithHeroHaving0Health() {
         // Asegúrate de inicializar el typeMonster adecuadamente
-        MonsterModel monster = new MonsterModel("Vampiro", "Vampiro", 20, 60, 20);
+        MonsterModel monster = new MonsterModel();
         
         // Mockeamos los servicios de Ayden y el modelo del héroe
         AidenService heroe = mock(AidenService.class);
@@ -71,7 +63,7 @@ public class MonsterServiceTest {
     @Test
     void testMonsterAttackWithNegativeHeroHealth() {
         // Arrange
-        MonsterModel monster = new MonsterModel("Vampiro", "Vampiro", 20, 60, 20);
+        MonsterModel monster = new MonsterModel();
         AidenService heroe = mock(AidenService.class);
         Aiden model = mock(Aiden.class);
         service.monsterAttack(monster, heroe);
@@ -83,7 +75,7 @@ public class MonsterServiceTest {
     @Test
     void testApplyMonsterAbilityWithSkeletonMonster() {
         
-        MonsterModel skeletonMonster = new MonsterModel("Esqueleto", "Esqueleto", 10, 50, 10);
+        MonsterModel skeletonMonster = new MonsterModel();
         int baseDamage = 10;
         MonsterService monsterService = new MonsterService(repository);
 
@@ -96,7 +88,7 @@ public class MonsterServiceTest {
       @Test
       void testApplyMonsterAbilityWithFantasma() {
         
-        MonsterModel monster = new MonsterModel("Fantasma", "Fantasma",20, 60,  15);
+        MonsterModel monster = new MonsterModel();
         AidenService heroe = mock(AidenService.class);
         int baseDamage = 20;
 
@@ -111,7 +103,7 @@ public class MonsterServiceTest {
       @Test
       void testApplyMonsterAbilityWithVampiro() {
         
-        MonsterModel vampiro = new MonsterModel("Vampiro", "Vampiro", 15, 60, 20);
+        MonsterModel vampiro = new MonsterModel();
         int baseDamage = vampiro.getMonsterDamage();
         
         int totalDamage = service.applyMonsterAbility(vampiro, baseDamage);
@@ -123,7 +115,7 @@ public class MonsterServiceTest {
       @Test
       void testApplyMonsterAbilityWithUnknownType() {
         
-        MonsterModel monster = new MonsterModel("Unknown", "Unknown", 10, 60, 10);
+        MonsterModel monster = new MonsterModel();
         int baseDamage = 10;
 
         int totalDamage = service.applyMonsterAbility(monster, baseDamage);
@@ -165,7 +157,7 @@ public class MonsterServiceTest {
     @Test
     void testDeleteMonster() {
 
-        MonsterModel monster = new MonsterModel("TestMonster","Test", 10, 100, 10);
+        MonsterModel monster = new MonsterModel();
         //when(repository.findById((long) 1)).thenReturn(Optional.of(monster));
 
         service.deleteMonster((long) 1);
@@ -177,9 +169,9 @@ public class MonsterServiceTest {
     @Test
     void testGetAllMonsters() {
         List<MonsterModel> monsters = new ArrayList<>();
-        MonsterModel esqueleto = new MonsterModel("Esqueleto","Esqueleto", 10, 50, 10);
-        MonsterModel fantasma = new MonsterModel("Fantasma","Fantasma", 15, 40, 15);
-        MonsterModel vampiro = new MonsterModel("Vampiro","Vampiro", 20, 60, 20);  
+        MonsterModel esqueleto = new MonsterModel();
+        MonsterModel fantasma = new MonsterModel();
+        MonsterModel vampiro = new MonsterModel();  
         monsters.add(esqueleto);
         monsters.add(fantasma);
         monsters.add(vampiro);  
@@ -191,7 +183,7 @@ public class MonsterServiceTest {
     }   
     @Test
     void testGetMonsterById() {
-        MonsterModel vampiro = new MonsterModel("Vampiro","Vampiro",20,60,20);  
+        MonsterModel vampiro = new MonsterModel();  
         when(repository.findById((long) 1)).thenReturn(Optional.of(vampiro));
         MonsterModel result = service.getMonsterById((long) 1); 
         assertThat(result, equalTo(vampiro));
@@ -206,8 +198,8 @@ public class MonsterServiceTest {
     void testGetMonstersByType() {
         // Arrange
         List<MonsterModel> esqueletos = new ArrayList<>();
-        MonsterModel esqueleto1 = new MonsterModel("Esqueleto Debil"," Esqueleto",10, 50, 10);
-        MonsterModel esqueleto2 = new MonsterModel("Esqueleto Fuerte","Esqueleto", 12, 55, 13);
+        MonsterModel esqueleto1 = new MonsterModel();
+        MonsterModel esqueleto2 = new MonsterModel();
 
         esqueletos.add(esqueleto1);
         esqueletos.add(esqueleto2); 
@@ -225,7 +217,7 @@ public class MonsterServiceTest {
     @Test
     void testHorda() {
         // Arrange
-        MonsterModel skeletonMonster = new MonsterModel("Esqueleto", "Esqueleto", 10, 50, 10);
+        MonsterModel skeletonMonster = new MonsterModel();
         skeletonMonster.setInvisibleActive(true);
         Random random = new Random();
         //when(random.nextInt(3) + 1).thenReturn(2);
@@ -245,7 +237,7 @@ public class MonsterServiceTest {
     @Test
     void testInvisible() {
         // Arrange
-        MonsterModel monster = new MonsterModel("Fantasma", "Fantasma", 20, 65, 15);
+        MonsterModel monster = new MonsterModel();
         monster.setInvisibleActive(true);
         int baseDamage = 20;
     
@@ -266,7 +258,7 @@ public class MonsterServiceTest {
 
   @Test
   void testMonsterIsAlive() {
-      MonsterModel monster = new MonsterModel("Vampiro", "Vampiro", 20, 60, 20);
+      MonsterModel monster = new MonsterModel();
       boolean isAlive = service.isMonsterAlive(monster.getId());
       assertTrue(isAlive);
   }
@@ -274,7 +266,7 @@ public class MonsterServiceTest {
     @Test
     void testLifeStealing() {
         // Arrange
-        MonsterModel vampiro = new MonsterModel("Vampiro","Vampiro", 15, 60,  20);
+        MonsterModel vampiro = new MonsterModel();
         vampiro.setLifeStealingActive(true);
         int baseDamage = 10;
     
@@ -293,7 +285,7 @@ public class MonsterServiceTest {
     @Test
     void testMonsterDamage() {
         // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster","Test", 10, 100,  10);
+        MonsterModel monster = new MonsterModel();
         MonsterService monsterService = new MonsterService(repository);
     
         // Act
@@ -306,7 +298,7 @@ public class MonsterServiceTest {
     @Test
     void testMonsterReceiveDamage() {
         // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster", "Test",10, 100,  10);
+        MonsterModel monster = new MonsterModel();
         int damage = 20;
     
         // Act
@@ -322,8 +314,8 @@ public class MonsterServiceTest {
     @Test
     void testUpdateMonster() {
         // Arrange
-        MonsterModel monster = new MonsterModel("TestMonster","Test", 10, 100,  10);
-        MonsterModel updatedMonster = new MonsterModel("UpdatedMonster","Updated", 15, 150,  15);
+        MonsterModel monster = new MonsterModel();
+        MonsterModel updatedMonster = new MonsterModel();
         when(repository.findById((long) 1)).thenReturn(Optional.of(monster));
         when(repository.save(any(MonsterModel.class))).thenReturn(updatedMonster);
     

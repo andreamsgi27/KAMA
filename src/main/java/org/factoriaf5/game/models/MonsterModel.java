@@ -47,6 +47,10 @@ public class MonsterModel {
         this.monsterHealth = monsterHealth;
         this.bonus = bonus;
     }
+
+    public MonsterModel(){
+
+    }
     // Getters y Setters
     public Long getId() { 
         return id; 
