@@ -8,6 +8,5 @@ class GameApplicationTests {
 
     @Test
     void contextLoads() {
-		System.out.println("sadgag");
     }
 }

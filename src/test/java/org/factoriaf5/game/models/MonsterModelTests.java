@@ -18,7 +18,7 @@ class MonsterModelTests {
         int damage = 500;
         int bonus = 50;
 
-        MonsterModel monster = new MonsterModel();
+        MonsterModel monster = new MonsterModel("Zombie", "Morti", 500, 100, 50);
 
         assertEquals(type, monster.getTypeMonster());
         assertEquals(name, monster.getMonsterName());
@@ -100,7 +100,7 @@ class MonsterModelTests {
     @Test
     void handleNullValuesForTypeMonsterAndMonsterName() {
 
-        MonsterModel monster = new MonsterModel();
+        MonsterModel monster = new MonsterModel(null, null, 200,100,10);
         
         assertNull(monster.getTypeMonster());
         assertNull(monster.getMonsterName());

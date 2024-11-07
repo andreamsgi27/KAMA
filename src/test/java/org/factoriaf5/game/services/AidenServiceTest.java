@@ -108,7 +108,7 @@ class AidenServiceTest {
     @Test
     void testShield() {
         // Crear un monstruo de ejemplo
-        MonsterModel monster = new MonsterModel();
+        MonsterModel monster = new MonsterModel("Esqueleto", "Esqueleto", 30, 20, 10);
 
         // Ejecutamos el método
         int reducedDamage = aidenService.shield(monster);
