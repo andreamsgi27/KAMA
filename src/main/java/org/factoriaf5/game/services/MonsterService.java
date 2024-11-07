@@ -14,6 +14,7 @@ public class MonsterService {
 
     private static MonsterRepository repository;
 
+    @SuppressWarnings("static-access")
     public MonsterService(MonsterRepository repository) {
         this.repository = repository;
     }
