@@ -106,8 +106,4 @@ public class MonsterModel {
     public int getNumSkeletons() { return numSkeletons; }
     public void setNumSkeletons(int numSkeletons) { this.numSkeletons = numSkeletons; }
 
-    public Object isMonsterAlive() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isMonsterAlive'");
-    }
 }

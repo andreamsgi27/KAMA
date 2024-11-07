@@ -104,11 +104,8 @@ public void testCreateBackpack() {
 package org.factoriaf5.game.models;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.factoriaf5.game.services.BackpackService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 public class BackpackModelTest {
 
