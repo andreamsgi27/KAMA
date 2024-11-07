@@ -1,7 +1,7 @@
 package org.factoriaf5.game.models;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
@@ -18,12 +18,12 @@ class MonsterModelTests {
         int damage = 500;
         int bonus = 50;
 
-        MonsterModel monster = new MonsterModel(type, name, health, damage, bonus);
+        MonsterModel monster = new MonsterModel(type, name, damage, health,  bonus);
 
         assertEquals(type, monster.getTypeMonster());
         assertEquals(name, monster.getMonsterName());
-        assertEquals(health, monster.getMonsterHealth());
         assertEquals(damage, monster.getMonsterDamage());
+        assertEquals(health, monster.getMonsterHealth());
         assertEquals(bonus, monster.getBonus());
     }
 
@@ -93,8 +93,8 @@ class MonsterModelTests {
         monster.setMonsterHealth(-50);
         monster.setMonsterDamage(-100);
         
-        assertEquals(-50, monster.getMonsterDamage());
-        assertEquals(-100, monster.getMonsterHealth());
+        assertEquals(-100, monster.getMonsterDamage());
+        assertEquals(-50, monster.getMonsterHealth());
     }
 
     @Test
@@ -104,8 +104,8 @@ class MonsterModelTests {
         
         assertNull(monster.getTypeMonster());
         assertNull(monster.getMonsterName());
-        assertEquals(100, monster.getMonsterHealth());
-        assertEquals(200, monster.getMonsterDamage());
+        assertEquals(200, monster.getMonsterHealth());
+        assertEquals(100, monster.getMonsterDamage());
         assertEquals(10, monster.getBonus());
     }
 
