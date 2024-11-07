@@ -1,5 +1,6 @@
 package org.factoriaf5.game.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,18 +10,35 @@ import jakarta.persistence.Id;
 public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_item")
     private Long id;
     private String itemName;
     private String itemDescription;
 
-    public Items(String itemName) {
+
+    public Items() {
+        // Constructor vacío necesario
+    }
+
+    public Items(String itemName){
+        this.itemName = "";
+    }
+
+    public Items(String itemName, String itemDescription) {
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
 
     // Getters y setters
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
 
     public String getItemName() {
         return itemName;

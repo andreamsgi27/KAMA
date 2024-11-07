@@ -29,7 +29,7 @@ public class ItemsService {
         String randomItem = possibleItems[random.nextInt(possibleItems.length)];
         Items foundItem = new Items(randomItem);
         itemsRepository.save(foundItem);
-        return "Encontraste " + randomItem;
+        return randomItem;
     }
 
     public int spear(int aidenDamage) {

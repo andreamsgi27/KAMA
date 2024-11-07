@@ -51,6 +51,7 @@ public class MonsterModel {
 
     // Getters y Setters
     public Long getId() { return id; }
+    public void setId(Long id) { this.id = id;}
     public String getTypeMonster() { return typeMonster; }
     public void setTypeMonster(String typeMonster) { this.typeMonster = typeMonster; }
     public int getMonsterDamage() { return monsterDamage; }
