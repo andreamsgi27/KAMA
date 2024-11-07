@@ -5,3 +5,6 @@ Halloween game
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
 </p>
 
+<p align="center">
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=50%/>
+</p>
