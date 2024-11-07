@@ -1,5 +1,7 @@
 package org.factoriaf5.game.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +13,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "monsters")
-public class MonsterModel {
+public class MonsterModel implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -97,13 +101,13 @@ public class MonsterModel {
     public void setBonus(int bonus) { this.bonus = bonus; }
 
     // Métodos booleanos para las habilidades especiales
-    public boolean isLifeStealingActive() { return lifeStealingActive; }
-    public void setLifeStealingActive(boolean active) { this.lifeStealingActive = active; }
+    public Boolean isLifeStealingActive() { return lifeStealingActive; }
+    public void setLifeStealingActive(Boolean active) { this.lifeStealingActive = active; }
 
-    public boolean isInvisibleActive() { return invisibleActive; }
-    public void setInvisibleActive(boolean active) { this.invisibleActive = active; }
+    public Boolean isInvisibleActive() { return invisibleActive; }
+    public void setInvisibleActive(Boolean active) { this.invisibleActive = active; }
 
-    public int getNumSkeletons() { return numSkeletons; }
+    public Integer getNumSkeletons() { return numSkeletons; }
     public void setNumSkeletons(int numSkeletons) { this.numSkeletons = numSkeletons; }
 
 }
