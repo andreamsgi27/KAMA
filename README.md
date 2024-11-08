@@ -183,11 +183,7 @@ mvn test
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=40%/>
 </p>
 
-### GitHub:
-- Andrea Martinez 	(scrum master):	[andream](https://github.com/andreamsgi27)
-- Maria Garcia    	(product Owner):[mariag](https://github.com/maria)
-- Adrian Caiñas   	(developer): 	[adrian](https://github.com/adrian)
-- Andrés Vásquez  	(developer): 	[andres](https://github.com/diegofdez56)
-- Estefany Ochoa  	(developer): 	[Stefany](https://github.com/Estefani)
-- Kevin Boy      	(devloper): 	[KevinB](https://github.com/Kev66)
-- Mercy Chancayauri 	(developer):	[Mercy](https://github.com/mercyluz)
+### Colaboradores:
+<p align="center">
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/colaboradores.png" width=50% height=40%/>
+</p>
