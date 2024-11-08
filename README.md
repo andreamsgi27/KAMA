@@ -4,36 +4,34 @@
 
 Halloween game es un juego de aventura y acción en el que los jugadores controlan a Aiden, un joven héroe, para derrotar a las criaturas del malvado hechicero Mortis. El objetivo principal es restaurar la paz en un pueblo sumido en el caos, enfrentándose a esqueletos, fantasmas y vampiros, mientras recogen objetos mágicos y mejoras para aumentar sus habilidades.
 
+<p align="center">
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/aiden.png" width=50% height=50%/>
+</p>
 
 
 
 Este proyecto implica el desarrollo de una API que gestione las mecánicas del juego
 
-BASE DE DATOS GAME 
+
+
+
+
+
+
+## BASE DE DATOS
+
+
 <p align="center">
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
 </p>
-
-
-
-
-
-## Capturas de Pantalla del Proyecto
-
-Incluir capturas de pantalla o imágenes que muestren el proyecto en funcionamiento.
-
 ![Home](imagenes/home.png)
 Vista inicio de la aplicación.
 
-## Prerrequisitos o Dependencias
+## Herramientas utilizadas
 
-Lista de software y herramientas, incluyendo versiones, que necesitas para instalar y ejecutar este proyecto:
-
-- Sistema Operativo (por ejemplo, Ubuntu 20.04, Windows 10)
-- Lenguaje de programación (por ejemplo, Python 3.8)
-- Framework (por ejemplo, Django 3.1)
-- Base de datos (por ejemplo, PostgreSQL 12)
-- Otros...
+<p align="center">
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
+</p>
 
 ## Instalación del Proyecto
 
