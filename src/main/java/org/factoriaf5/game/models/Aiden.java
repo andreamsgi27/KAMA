@@ -18,10 +18,9 @@ public class Aiden {
     private int aidenHealth;
     private int aidenDamage;
 
-    // Constructor sin parámetros para JPA
     public Aiden() {
-        this.aidenHealth = 100; // Valor inicial
-        this.aidenDamage = 15;  // Valor inicial
+        this.aidenHealth = 100;
+        this.aidenDamage = 15;
     }
 
     public Aiden(Long id, String aidenName, String aidenDescription, String aidenAbility) {
@@ -29,8 +28,8 @@ public class Aiden {
         this.aidenName = aidenName;
         this.aidenDescription = aidenDescription;
         this.aidenAbility = aidenAbility;
-        this.aidenHealth = 100; // Valor inicial
-        this.aidenDamage = 15;  // Valor inicial
+        this.aidenHealth = 100;
+        this.aidenDamage = 15;
     }
 
     public Long getId() {
@@ -77,7 +76,6 @@ public class Aiden {
         this.aidenDamage = aidenDamage;
     }
 
-    // Método para recibir daño
     public void receiveDamage(int totalDamage) {
         setAidenHealth(getAidenHealth() - totalDamage);
     }

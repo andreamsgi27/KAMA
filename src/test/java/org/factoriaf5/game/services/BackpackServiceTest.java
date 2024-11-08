@@ -56,15 +56,12 @@ public class BackpackServiceTest {
         Backpack backpack = new Backpack();
         Items item = new Items("Espada", "Una espada poderosa");
         
-        // Añadir el item a la posición 1
         service.addItemToBackpack(backpack, item, 1);
         assertEquals(item, backpack.getItem1());
 
-        // Añadir el item a la posición 2
         service.addItemToBackpack(backpack, item, 2);
         assertEquals(item, backpack.getItem2());
 
-        // Añadir el item a la posición 3
         service.addItemToBackpack(backpack, item, 3);
         assertEquals(item, backpack.getItem3());
     }
@@ -74,20 +71,16 @@ public class BackpackServiceTest {
         Backpack backpack = new Backpack();
         Items item = new Items("Espada", "Una espada poderosa");
 
-        // Asignar el item en cada posición para luego eliminarlo
         backpack.setItem1(item);
         backpack.setItem2(item);
         backpack.setItem3(item);
 
-        // Eliminar el item en la posición 1
         service.removeItemFromBackpack(backpack, 1);
         assertNull(backpack.getItem1());
 
-        // Eliminar el item en la posición 2
         service.removeItemFromBackpack(backpack, 2);
         assertNull(backpack.getItem2());
 
-        // Eliminar el item en la posición 3
         service.removeItemFromBackpack(backpack, 3);
         assertNull(backpack.getItem3());
     }
@@ -98,20 +91,15 @@ public class BackpackServiceTest {
         Items item1 = new Items("Espada", "Una espada poderosa");
         Items item2 = new Items("Escudo", "Un escudo resistente");
 
-        // Asignar un item en cada posición
         backpack.setItem1(item1);
         backpack.setItem2(item1);
         backpack.setItem3(item1);
 
-        // Actualizar el item en la posición 1
         service.updateItemInBackpack(backpack, item2, 1);
         assertEquals(item2, backpack.getItem1());
 
-        // Actualizar el item en la posición 2
         service.updateItemInBackpack(backpack, item2, 2);
         assertEquals(item2, backpack.getItem2());
-
-        // Actualizar el item en la posición 3
         service.updateItemInBackpack(backpack, item2, 3);
         assertEquals(item2, backpack.getItem3());
     }
@@ -123,12 +111,10 @@ public class BackpackServiceTest {
         Items item2 = new Items("Escudo", "Un escudo resistente");
         Items item3 = new Items("Poción", "Una poción curativa");
 
-        // Asignar un item en cada posición
         backpack.setItem1(item1);
         backpack.setItem2(item2);
         backpack.setItem3(item3);
 
-        // Comprobar la recuperación de items
         assertEquals(item1, service.getItemFromBackpack(backpack, 1));
         assertEquals(item2, service.getItemFromBackpack(backpack, 2));
         assertEquals(item3, service.getItemFromBackpack(backpack, 3));

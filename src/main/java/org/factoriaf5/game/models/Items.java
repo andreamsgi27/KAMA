@@ -17,7 +17,6 @@ public class Items {
 
 
     public Items() {
-        // Constructor vacío necesario
     }
 
     public Items(String itemName){
@@ -29,7 +28,6 @@ public class Items {
         this.itemDescription = itemDescription;
     }
 
-    // Getters y setters
     public Long getId() {
         return id;
     }

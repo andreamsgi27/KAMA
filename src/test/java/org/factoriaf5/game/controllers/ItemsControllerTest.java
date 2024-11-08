@@ -35,18 +35,15 @@ public class ItemsControllerTest {
     @Test
     @DisplayName("Test /itemfound de controller")
     void testIndex() throws Exception {
-        // Simulamos que el servicio devuelve el valor "Anillo"
         String foundItem = "Ajo";
         when(itemsService.itemFound()).thenReturn(foundItem);
 
-        // Ejecutamos el request GET
         MockHttpServletResponse response = mockMvc.perform(get("/items/itemfound")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse();
         
-        // Verificaciones
         assertThat(response.getStatus(), is(200));
         assertThat(response.getContentAsString(), is(foundItem));
     }

@@ -18,23 +18,21 @@ public class Backpack {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item1_id") // Conexión con el primer ítem
+    @JoinColumn(name = "item1_id")
     private Items item1;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item2_id") // Conexión con el segundo ítem
+    @JoinColumn(name = "item2_id")
     private Items item2;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item3_id") // Conexión con el tercer ítem
+    @JoinColumn(name = "item3_id")
     private Items item3;
 
     private String name;
-
-    // Constructor sin parámetros para JPA
     public Backpack() {}
 
-    // Constructor con parámetros
+
     public Backpack(Long id, String name) {
         this.id = id;
         this.name = name;

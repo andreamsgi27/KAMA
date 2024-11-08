@@ -51,30 +51,30 @@ public class ItemsService {
     public boolean garlic(Long monsterId) {
         MonsterModel monster = monsterRepository.findById(monsterId).orElse(null);
         if (monster != null && "Vampiro".equals(monster.getTypeMonster())) {
-            monster.setLifeStealingActive(false); // Desactiva la habilidad de robo de vida
+            monster.setLifeStealingActive(false);
             monsterRepository.save(monster);
             return true;
         }
-        return false; // No era un vampiro o no se encontró el monstruo
+        return false;
     }
 
     public boolean glasses(Long monsterId) {
         MonsterModel monster = monsterRepository.findById(monsterId).orElse(null);
         if (monster != null && "Fantasma".equals(monster.getTypeMonster())) {
-            monster.setInvisibleActive(false); // Desactiva la habilidad de invisibilidad
+            monster.setInvisibleActive(false);
             monsterRepository.save(monster);
             return true;
         }
-        return false; // No era un fantasma o no se encontró el monstruo
+        return false;
     }
 
     public boolean whistle(Long monsterId) {
         MonsterModel monster = monsterRepository.findById(monsterId).orElse(null);
         if (monster != null && "Esqueleto".equals(monster.getTypeMonster())) {
-            monster.setNumSkeletons(1); // Reduce la horda a 1 esqueleto
+            monster.setNumSkeletons(1);
             monsterRepository.save(monster);
             return true;
         }
-        return false; // No era un esqueleto o no se encontró el monstruo
+        return false;
     }
 }

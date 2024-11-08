@@ -17,39 +17,32 @@ public class ItemsController {
         this.itemsService = itemsService;
     }
 
-    // Endpoint para obtener un ítem aleatorio
     @GetMapping("/itemfound")
     public String itemFound() {
         return itemsService.itemFound();
     }
 
-    // Endpoint para usar una lanza contra un monstruo
     @PostMapping("/spear")
     public int useSpear(@RequestParam int aidenDamage) {
         return itemsService.spear(aidenDamage);
     }
 
-    // Endpoint para usar una poción y curar a Aiden
     @PostMapping("/potion")
     public int usePotion(@RequestParam int aidenHealth) {
         return itemsService.potion(aidenHealth);
     }
 
-    // Endpoint para usar ajo contra un vampiro
     @PostMapping("/garlic")
     public String useGarlic(@RequestParam Long monsterId) {
         boolean success = itemsService.garlic(monsterId);
         return success ? "El ajo desactiva la habilidad de robo de vida del vampiro." : "No se pudo aplicar el ajo.";
     }
 
-    // Endpoint para usar gafas contra un fantasma
     @PostMapping("/glasses")
     public String useGlasses(@RequestParam Long monsterId) {
         boolean success = itemsService.glasses(monsterId);
         return success ? "Las gafas desactivan la invisibilidad del fantasma." : "No se pudo aplicar las gafas.";
     }
-
-    // Endpoint para usar el silbato contra una horda de esqueletos
     @PostMapping("/whistle")
     public String useWhistle(@RequestParam Long monsterId) {
         boolean success = itemsService.whistle(monsterId);

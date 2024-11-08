@@ -25,7 +25,6 @@ public class MonsterService {
         System.out.println("El " + monster.getMonsterName() + " ataca a Aiden");
     }
 
-    // Método que aplica las habilidades especiales del monstruo
     public int applyMonsterAbility(MonsterModel monster, int baseDamage) {
         switch(monster.getTypeMonster()) {
             case "Esqueleto" -> {
@@ -41,7 +40,6 @@ public class MonsterService {
         return baseDamage;
     }
 
-    // Habilidad especial "Horda" para Esqueleto
     public int horda(MonsterModel monster, int baseDamage) {
         if (monster.isInvisibleActive()) {
             Random random = new Random();
@@ -56,7 +54,6 @@ public class MonsterService {
         }
     }
 
-    // Habilidad especial "Robo de vida" para Vampiro
     public int lifeStealing(MonsterModel monster, int baseDamage) {
         if (monster.isLifeStealingActive()) {
             int stolenLife = baseDamage / 2;
@@ -70,7 +67,6 @@ public class MonsterService {
         }
     }
 
-    // Habilidad especial "Invisibilidad" para Fantasma
     public int invisible(MonsterModel monster, int baseDamage) {
         if (monster.isInvisibleActive()) {
             Random random = new Random();
@@ -87,7 +83,6 @@ public class MonsterService {
         }
     }
 
-    // Método para crear un nuevo monstruo en la base de datos
     public MonsterModel createMonster(String type, String name, int damage, int health, int bonus) {
         MonsterModel monster = new MonsterModel(); 
         return repository.save(monster);
@@ -98,11 +93,11 @@ public class MonsterService {
         int randomNumber = random. nextInt(3) + 1;
 
         switch(randomNumber){
-            case 1: 
+            case 1:
                 return createMonster("Esqueleto", "Esqueleto " , 10, 50, 10);
-            case 2: 
+            case 2:
                 return createMonster("Vampiro", "Vampiro " , 15, 60, 20);
-            case 3: 
+            case 3:
                 return createMonster("Fantasma", "Fantasma " , 20, 65, 15);
             default:
                 throw new IllegalStateException("Número inesperado: " + randomNumber);
@@ -110,44 +105,36 @@ public class MonsterService {
 
     }
 
-    // Método para obtener un monstruo por su ID
     public MonsterModel getMonsterById(Long id) {
         return repository.findById(id)
             .orElseThrow(() -> new EntityNotFoundException("Monstruo no encontrado con id: " + id));
     }
 
-    // Método para obtener todos los monstruos
     public List<MonsterModel> getAllMonsters() {
         return repository.findAll();
     }
     
-    // Método para actualizar un monstruo existente
     public MonsterModel updateMonster(Long id, MonsterModel updatedMonster) {
         MonsterModel monster = getMonsterById(id);
         monster.setMonsterName(updatedMonster.getMonsterName());
         monster.setMonsterDamage(updatedMonster.getMonsterDamage());
         monster.setTypeMonster(updatedMonster.getTypeMonster());
-        // Actualiza otros campos según sea necesario
         return repository.save(monster);
     }
 
-    // Método para obtener monstruos por tipo
     public List<MonsterModel> getMonstersByType(String type) {
         return repository.findByTypeMonster(type);
     }
 
-    // Método para eliminar un monstruo
     public void deleteMonster(Long id) {
         repository.deleteById(id);
     }
 
-    // Método auxiliar para realizar un ataque del monstruo
     public int monsterDamage(Long id) {
         MonsterModel monster = getMonsterById(id);
         return monster.getMonsterDamage();
     }
 
-    // Método auxiliar para recibir daño por ID de monstruo
     public MonsterModel monsterReceiveDamage(Long id, int damage) {
         MonsterModel monster = getMonsterById(id);
         int newHealth = Math.max(0, monster.getMonsterHealth() - damage);
@@ -155,7 +142,6 @@ public class MonsterService {
         return repository.save(monster);
     }
 
-    // Verifica si el monstruo sigue vivo a partir de su ID
     public boolean isMonsterAlive(Long id) {
         MonsterModel monster = getMonsterById(id);
         return monster.getMonsterHealth() > 0;

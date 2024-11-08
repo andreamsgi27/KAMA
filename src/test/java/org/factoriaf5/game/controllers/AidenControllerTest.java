@@ -28,20 +28,17 @@ class AidenControllerTest {
     @InjectMocks
     private AidenController aidenController;
     private Aiden aiden;
-    //@SuppressWarnings("unused")//-
     private ObjectMapper objectMapper = new ObjectMapper();
-//+
+
 private Aiden existingAiden;
 @BeforeEach
 void setup() {
-    // Creamos un objeto Aiden inicial
     existingAiden = new Aiden(1L, "Aiden", "Un héroe", "Poder Supremo");
 }
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(aidenController).build();
-        // Crear un objeto Aiden de ejemplo
         aiden = new Aiden();
         aiden.setAidenName("Aiden");
         aiden.setAidenDescription("Es un héroe que posee habilidades.");
@@ -51,17 +48,13 @@ void setup() {
     }
     @Test
     void testGetAiden() throws Exception {
-        // Crear un objeto Aiden de ejemplo
         Aiden aiden = new Aiden(1L, "Aiden", "Es un héroe que posee habilidades.", "Power Strike");
-        // Simular la llamada al servicio y la respuesta
         when(aidenService.getAiden()).thenReturn(aiden);
-        // Realizar la petición GET y obtener el contenido de la respuesta
         String responseContent = mockMvc.perform(get("/api/aiden"))
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        // Aserciones usando AssertJ
         assertThat(responseContent).contains("\"aidenName\":\"Aiden\"");
         assertThat(responseContent).contains("\"aidenAbility\":\"Power Strike\"");
     }

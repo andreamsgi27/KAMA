@@ -13,7 +13,7 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Renombrado de gameId a id
+    private Long id;
 
     @NotNull(message = "El nombre del jugador no puede ser nulo")
     private String playerName;
@@ -24,9 +24,9 @@ public class Game {
     private Integer finalScore;
 
     @Column(name = "gameDate")
-    private LocalDateTime gameDate; // Cambiado a LocalDateTime
+    private LocalDateTime gameDate;
 
-    // Getters y Setters
+
     public Long getId() {
         return id;
     }

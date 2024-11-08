@@ -37,10 +37,9 @@ public class MonsterModel implements Serializable{
     @Column(name = "monster_bonus")
     private int bonus;
 
-    // Atributos para habilidades especiales
     private Boolean lifeStealingActive = false;
     private Boolean invisibleActive = false;
-    private Integer numSkeletons = 5; // Número de esqueletos en una horda
+    private Integer numSkeletons = 5;
 
     
 
@@ -55,43 +54,42 @@ public class MonsterModel implements Serializable{
     public MonsterModel(){
 
     }
-    // Getters y Setters
-    public Long getId() { 
-        return id; 
+    public Long getId() {
+        return id;
     }
     public void setId(Long id) {
         this.id = id;
     }
-    public String getTypeMonster() { 
-        return typeMonster; 
+    public String getTypeMonster() {
+        return typeMonster;
     }
 
-    public void setTypeMonster(String typeMonster) { 
-        this.typeMonster = typeMonster; 
+    public void setTypeMonster(String typeMonster) {
+        this.typeMonster = typeMonster;
     }
 
-    public int getMonsterDamage() { 
-        return monsterDamage; 
+    public int getMonsterDamage() {
+        return monsterDamage;
     }
 
-    public void setMonsterDamage(int monsterDamage) { 
-        this.monsterDamage = monsterDamage; 
+    public void setMonsterDamage(int monsterDamage) {
+        this.monsterDamage = monsterDamage;
     }
 
-    public int getMonsterHealth() { 
-        return monsterHealth; 
+    public int getMonsterHealth() {
+        return monsterHealth;
     }
 
     public void setMonsterHealth(int monsterHealth) {
-         this.monsterHealth = monsterHealth; 
+         this.monsterHealth = monsterHealth;
         }
 
     public String getMonsterName() {
-         return monsterName; 
+         return monsterName;
         }
 
-    public void setMonsterName(String monsterName) { 
-        this.monsterName = monsterName; 
+    public void setMonsterName(String monsterName) {
+        this.monsterName = monsterName;
     }
 
     public int getBonus() {
@@ -100,7 +98,6 @@ public class MonsterModel implements Serializable{
 
     public void setBonus(int bonus) { this.bonus = bonus; }
 
-    // Métodos booleanos para las habilidades especiales
     public Boolean isLifeStealingActive() { return lifeStealingActive; }
     public void setLifeStealingActive(Boolean active) { this.lifeStealingActive = active; }
 

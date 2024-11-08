@@ -9,7 +9,7 @@ public class ItemsTest {
 
     @BeforeEach
     void setUp() {
-        items = new Items("Spear", "A weapon used for hunting"); // Inicializamos con valores
+        items = new Items("Spear", "A weapon used for hunting");
     }
 
     @Test

@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
-//@SpringBootTest == si agregamos  esto, el test se ejecuta en un contexto de Spring Boot, lo cual da fallos por todas partes
-
 class MonsterModelTests {
 
     @Test
@@ -84,19 +82,7 @@ class MonsterModelTests {
         
         assertEquals(expectedBonus, monster.getBonus());
     }
-
-    /* @Test
-    void handleNegativeValuesForDamageAndHealth() {
-
-        MonsterModel monster = new MonsterModel("Zombie", "Morti", 100, 200, 10);
-        
-        monster.setMonsterHealth(-50);
-        monster.setMonsterDamage(-100);
-        
-        assertEquals(-50, monster.getMonsterDamage());
-        assertEquals(-100, monster.getMonsterHealth());
-    } */
-
+    
     @Test
     void handleNullValuesForTypeMonsterAndMonsterName() {
 
