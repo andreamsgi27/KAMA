@@ -18,17 +18,9 @@ Este proyecto implica el desarrollo de una API que gestione las mecánicas del j
 
 
 
-## Base de datos
-Nos conectamos a la consola de H2
 
-```bash
-# http://localhost:8080/h2-console
-```
-<p align="center">
-	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
-</p>
-![Home](imagenes/home.png)
-Vista inicio de la aplicación.
+
+
 
 ## Herramientas utilizadas
 
@@ -36,31 +28,26 @@ Vista inicio de la aplicación.
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/herramientasyversiones.png" width=50% height=50%/>
 </p>
 
-## Instalación del Proyecto
 
-Una guía paso a paso sobre cómo configurar el entorno de desarrollo e instalar todas las dependencias.
+## Ejecutar el Proyecto
+
+To run app:
+```bash
+mvn spring-boot:run
+```
+## Base de datos
+Nos conectamos a la consola de H2
 
 ```bash
-# paso 1
+# http://localhost:8080/h2-console
 ```
-
-Y así sucesivamente...
-
-```bash
-# paso 2
-```
-
-## Instrucciones para Ejecutar el Proyecto
-
-Instrucciones para ejecutar el proyecto una vez instalado.
-
-```bash
-#
-```
- ## UML Diagram
 <p align="center">
-  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/uml.png" width=50% height=50%/>
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/pantallaH2.png" width=50% height=50%/>
 </p>
+<p align="center">
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
+</p>
+
 
 ## Endpoints
 
@@ -91,9 +78,7 @@ Descripción: Crea un nuevo juego en la base de datos con la información propor
 
 Cuerpo de la solicitud (JSON):
 
- 
-
-{ "playerName": "Horse Luis", "gameCleared": true, "finalScore": 30000, "gameDate": "2024-10-14T00:00:00" }
+ { "playerName": "Horse Luis", "gameCleared": true, "finalScore": 30000, "gameDate": "2024-10-14T00:00:00" }
 
 Respuesta:
 
@@ -108,6 +93,7 @@ Ejemplo de respuesta:
 </p>
 
 3.PUT /monsters/{id}
+
 Descripción: Actualiza los detalles de un monstruo existente mediante su ID.
 Parámetro de ruta: id - ID del monstruo.
 Request Body:
@@ -119,6 +105,40 @@ Código de respuesta: 200 OK
 Respuesta:
 <p align="center">
   <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/PUTMonster.png" width=50% height=50%/>
+</p>
+
+4.- GET /monsters/{id}/is-alive
+
+Descripción: Verifica si un monstruo específico sigue vivo.
+
+Parámetro de ruta: id - ID del monstruo.
+
+Response: true o false dependiendo de la salud del monstruo.
+Código de respuesta: 200 OK
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/Monstervivo.png" width=50% height=50%/>
+</p>
+5 PUT actualizar mochila (nombre):
+
+localhost:8080/api/backpacks/3
+{
+  "name": "saco updateado"
+}
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/añadirmochila.png" width=50% height=50%/>
+</p>
+6 AIDEN: GET:
+ Te trae toda la información de Aiden
+localhost:8080/api/aiden
+
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/postmanaiden.png" width=50% height=50%/>
+</p>
+
+
+## Diagrama UML
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/uml.png" width=50% height=50%/>
 </p>
 
 
