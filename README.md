@@ -5,6 +5,8 @@
 Halloween game es un juego de aventura y acción en el que los jugadores controlan a Aiden, un joven héroe, para derrotar a las criaturas del malvado hechicero Mortis. El objetivo principal es restaurar la paz en un pueblo sumido en el caos, enfrentándose a esqueletos, fantasmas y vampiros, mientras recogen objetos mágicos y mejoras para aumentar sus habilidades.
 
 
+
+
 Este proyecto implica el desarrollo de una API que gestione las mecánicas del juego
 
 BASE DE DATOS GAME 
@@ -12,17 +14,9 @@ BASE DE DATOS GAME
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
 </p>
 
-PRUEBA TEST DE PROYECTO KAMA 
-
-<p align="center">
-	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=40%/>
-</p>
-# Titulo del proyecto
-
-Breve descripción del proyecto y su objetivo.
 
 
-¿Estás comenzando un proyecto pequeño, un desafío de programación o un tutorial, y necesitas una forma rápida y sencilla de crear documentación básica? ¡Esta plantilla README minimalista es para ti!
+
 
 ## Capturas de Pantalla del Proyecto
 
@@ -63,12 +57,10 @@ Instrucciones para ejecutar el proyecto una vez instalado.
 #
 ```
  ## UML Diagram
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/uml.png" width=50% height=50%/>
+</p>
 
-
-
-```bash
-#
-```
 
 ## Estructura del Proyecto
 
@@ -101,6 +93,14 @@ A continuación se muestra una visión general de los principales directorios y 
             └── services
 
 ```
+## Ejecucion de los test
+Para asegurarte de que todo está funcionando como se espera, puedes ejecutar las pruebas unitarias e integrales incluidas en el proyecto. Usa el siguiente comando para ejecutar todas las pruebas:"
 
+```bash
+mvn test
+```
+<p align="center">
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=40%/>
+</p>
 
 - [Brayan Diaz C](https://github.com/brayandiazc)
