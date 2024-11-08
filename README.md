@@ -18,9 +18,12 @@ Este proyecto implica el desarrollo de una API que gestione las mecánicas del j
 
 
 
-## BASE DE DATOS
+## Base de datos
+Nos conectamos a la consola de H2
 
-
+```bash
+# http://localhost:8080/h2-console
+```
 <p align="center">
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
 </p>
@@ -30,7 +33,7 @@ Vista inicio de la aplicación.
 ## Herramientas utilizadas
 
 <p align="center">
-	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/BaseDeDatosKAMA.png" width=50% height=50%/>
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/herramientasyversiones.png" width=50% height=50%/>
 </p>
 
 ## Instalación del Proyecto
@@ -59,8 +62,67 @@ Instrucciones para ejecutar el proyecto una vez instalado.
   <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/uml.png" width=50% height=50%/>
 </p>
 
+## Endpoints
 
-## Estructura del Proyecto
+Base URL: /games
+
+ 
+
+Endpoints
+1. Obtener todos los juegos
+Endpoint: GET /games
+
+Descripción: Devuelve una lista de todos los juegos en la base de datos.
+
+Respuesta:
+
+Código 200 OK: Retorna un array de objetos Game.
+
+Ejemplo de respuesta:
+
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/GetGames-20241107-081234 (1).png" width=50% height=50%/>
+</p>
+
+2. Crear un nuevo juego
+Endpoint: POST /games
+
+Descripción: Crea un nuevo juego en la base de datos con la información proporcionada.
+
+Cuerpo de la solicitud (JSON):
+
+ 
+
+{ "playerName": "Horse Luis", "gameCleared": true, "finalScore": 30000, "gameDate": "2024-10-14T00:00:00" }
+
+Respuesta:
+
+Código 201 Created: Retorna el objeto Game creado, incluyendo su id asignado.
+
+Código 400 Bad Request: Si el cuerpo de la solicitud no cumple con los requisitos de validación.
+
+Ejemplo de respuesta:
+
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/crearnuevojuego.png" width=50% height=50%/>
+</p>
+
+3.PUT /monsters/{id}
+Descripción: Actualiza los detalles de un monstruo existente mediante su ID.
+Parámetro de ruta: id - ID del monstruo.
+Request Body:
+
+{ "typeMonster": "string", "monsterName": "string", "monsterDamage": "int", "monsterHealth": "int", "bonus": "int", "lifeStealingActive": "boolean", "invisibleActive": "boolean", "numSkeletons": "int" }
+
+Response: Retorna el objeto MonsterModel actualizado.
+Código de respuesta: 200 OK
+Respuesta:
+<p align="center">
+  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/PUTMonster.png" width=50% height=50%/>
+</p>
+
+
+## Estructura del Juego
 
 A continuación se muestra una visión general de los principales directorios y archivos en el proyecto Kama
 
@@ -101,4 +163,11 @@ mvn test
 	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=40%/>
 </p>
 
-- [Brayan Diaz C](https://github.com/brayandiazc)
+### GitHub:
+- Andrea Martinez 	(scrum master):	[andream](https://github.com/andreamsgi27)
+- Maria Garcia    	(product Owner):[mariag](https://github.com/maria)
+- Adrian Caiñas   	(developer): 	[adrian](https://github.com/adrian)
+- Andrés Vásquez  	(developer): 	[andres](https://github.com/diegofdez56)
+- Estefany Ochoa  	(developer): 	[Stefany](https://github.com/Estefani)
+- Kevin Boy      	(devloper): 	[KevinB](https://github.com/Kev66)
+- Mercy Chancayauri 	(developer):	[Mercy](https://github.com/mercyluz)
