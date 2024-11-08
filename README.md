@@ -185,5 +185,5 @@ mvn test
 
 ### Colaboradores:
 <p align="center">
-	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/colaboradores.png" width=30% height=30%/>
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/equipo.png" width=30% height=30%/>
 </p>
