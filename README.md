@@ -180,10 +180,10 @@ Para asegurarte de que todo está funcionando como se espera, puedes ejecutar la
 mvn test
 ```
 <p align="center">
-	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=40%/>
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/image.png" width=50% height=30%/>
 </p>
 
 ### Colaboradores:
 <p align="center">
-	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/colaboradores.png" width=50% height=40%/>
+	  <img src="https://github.com/andreamsgi27/KAMA/blob/aiden4/colaboradores.png" width=30% height=30%/>
 </p>
